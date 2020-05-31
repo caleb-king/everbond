@@ -1,10 +1,13 @@
 import React from 'react';
 import './App.css';
+import LandingPage from './LandingPage/LandingPage';
+import LandingPageNav from './LandingPage/LandingPageNav';
 
 function App() {
   return (
     <div className="App">
-      <p>Hello World!</p>
+      <LandingPageNav />
+      <LandingPage />
     </div>
   );
 }
