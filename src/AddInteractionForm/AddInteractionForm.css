@@ -1,0 +1,38 @@
+form {
+  text-align: left;
+}
+
+input, textarea, select {
+  width: 100%;
+  max-width: 250px;
+  padding: 5px;
+}
+
+textarea {
+  max-width: 500px;
+}
+
+input[type="number"] {
+  width: 75px;
+}
+
+label {
+  display: block;
+}
+
+.form-section {
+  margin-bottom: 30px;
+}
+
+.bond-birthday {
+  margin-left: 0;
+}
+
+.add-group-link {
+  font-size: .75em;
+}
+
+hr {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
