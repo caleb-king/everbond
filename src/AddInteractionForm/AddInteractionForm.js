@@ -24,19 +24,14 @@ function AddInteractionForm() {
           <div className="form-section">
             <h2>When</h2>
             <label htmlFor="interaction-when">What date did this occur?</label>
-            <input type="number" name="date-month" placeholder="01" min="1" max="12" required /> .
-            <input type="number" name="date-day" className="date-day"  placeholder="01" min="1" max="31" required /> .
-            <input type="number" name="date-year" className="date-year" placeholder="1990" required />
+            <input type="number" name="date-month" placeholder="06" min="1" max="12" required /> .
+            <input type="number" name="date-day" className="date-day"  placeholder="03" min="1" max="31" required /> .
+            <input type="number" name="date-year" className="date-year" placeholder="2020" required />
           </div>
           <div className="form-section">
             <h2>Where</h2>
             <label htmlFor="interaction-where">Add a location for the interaction.</label>
             <input type="text" name="interaction-who" />
-          </div>
-          <div className="form-section">
-            <h2>Why</h2>
-            <label htmlFor="interaction-why">Record the reason for the meeting.</label>
-            <textarea name="interaction-why" rows="5"></textarea>
           </div>
           <div className="form-section">
             <h2>How</h2>

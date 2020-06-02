@@ -18,7 +18,8 @@ function Bond(props) {
   return (
     <section>
       <header>
-          <h2>{name} <span className="last-interaction">({lastInteraction})</span></h2>
+          <h2>{name}</h2>
+          <p className="last-interaction"><span className="last-interaction-label">Last Interaction:</span> {lastInteraction}</p>
           <button>View</button>
           <button>Edit</button>
           <button>Delete</button>

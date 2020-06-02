@@ -29,7 +29,6 @@ const INTERACTIONS = [
     description: 'We had a short chat to catch up.',
     date: '2020-05-07',
     location: '',
-    purpose: 'To catch up',
     medium: 'Phone Call',
     notes: ''
   },
@@ -39,7 +38,6 @@ const INTERACTIONS = [
     description: 'Discussed his promotion and how we are each doing with the Covid lockdown',
     date: '2020-05-17',
     location: '',
-    purpose: 'To catch up',
     medium: 'Video Call',
     notes: 'Justin seems really excited about his new position - but it sounds like it will be stressful onboarding remotely.'
   },
@@ -49,7 +47,6 @@ const INTERACTIONS = [
     description: 'I shared the news about passing my server-side mock interview.',
     date: '2020-05-26',
     location: '',
-    purpose: 'Share news about me passing my mock interview',
     medium: 'Phone Call',
     notes: ''
   }
