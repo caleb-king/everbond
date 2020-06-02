@@ -1,13 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './LandingPageNav.css';
 
 function LandingPageNav() {
   return (
     <nav role="navigation">
-      <div class="nav-right">
+      <div className="nav-right">
         <ul>
-          <li>Sign Up</li>
-          <li>Demo</li>
+          <li><Link to="/">Sign Up</Link></li>
+          <li><Link to="/interactions">Demo</Link></li>
         </ul>
       </div>
     </nav>

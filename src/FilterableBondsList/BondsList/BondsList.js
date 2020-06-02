@@ -6,7 +6,10 @@ function BondsList(props) {
   return (
     props.bonds.map(bond => {
       return (
-        <Bond name={bond.name} />
+        <Bond 
+          name={bond.name} 
+          key={bond.id}
+        />
       );
     })
   )

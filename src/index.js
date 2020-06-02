@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App/App';
 import STORE from './STORE';
 
 ReactDOM.render(
-  <App store={STORE} />,
+  <BrowserRouter>
+    <App store={STORE} />
+  </BrowserRouter>,
   document.getElementById('root')
 );

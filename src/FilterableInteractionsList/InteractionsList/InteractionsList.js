@@ -5,13 +5,14 @@ import Interaction from '../Interaction/Interaction';
 function InteractionsList(props) {
   return (
     props.interactions.map(interaction => {
-      const { names, medium, date } = interaction;
+      const { names, medium, date, id } = interaction;
       
       return (
         <Interaction 
           names={names}
           medium={medium}
-          date={date} />
+          date={date} 
+          key={id}/>
       );
     })
   )

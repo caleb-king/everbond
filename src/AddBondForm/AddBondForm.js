@@ -10,11 +10,11 @@ function AddBondForm() {
       <section>
         <form id="create-bond">
           <div className="form-section">
-            <label for="bond-name">Name</label>
+            <label htmlFor="bond-name">Name</label>
             <input type="text" name="bond-name" required />
           </div>
           <div className="form-section">
-            <label for="bond-group">Group</label>
+            <label htmlFor="bond-group">Group</label>
             <select name="bond-group" id="bond-group">
               <option value="no-group">None</option>
               <option value="close-family">Close Family</option>
@@ -33,7 +33,7 @@ function AddBondForm() {
             <input type="number" name="date-year" className="date-year" placeholder="1990" />
           </div>
           <div className="form-section">
-            <label for="bond-notes">Notes</label>
+            <label htmlFor="bond-notes">Notes</label>
             <textarea name="bond-notes" rows="15" placeholder="Future discussion topics, gift ideas, significant details..."></textarea>
           </div>
 
