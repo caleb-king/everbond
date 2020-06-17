@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './LandingPage.css';
+import './LandingPageNav';
+import LandingPageNav from './LandingPageNav';
 
 function LandingPage() {
   return (
     <>
+      <LandingPageNav />
       <main role="main">
         <header role="banner">
           <h1>EverBond</h1>

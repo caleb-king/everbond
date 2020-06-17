@@ -1,7 +1,7 @@
 import React from 'react';
-import './AddBondForm.css';
+import './AddBond.css';
 
-function AddBondForm() {
+function AddBond() {
   return (
     <main role="main">
       <header>
@@ -45,4 +45,4 @@ function AddBondForm() {
   );
 }
 
-export default AddBondForm;
+export default AddBond;

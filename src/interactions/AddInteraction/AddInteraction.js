@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './AddInteractionForm.css';
+import './AddInteraction.css';
 
-function AddInteractionForm() {
+function AddInteraction() {
   return (
     <main role="main">
       <header>
@@ -40,8 +40,10 @@ function AddInteractionForm() {
               <option value="in-person">In Person</option>
               <option value="video-call">Video Call</option>
               <option value="phone-call">Phone Call</option>
+              <option value="text">Text</option>
               <option value="email">Email</option>
               <option value="letter">Letter</option>
+              <option value="other">Other</option>
             </select>
           </div>
           <hr />
@@ -58,4 +60,4 @@ function AddInteractionForm() {
   );
 }
 
-export default AddInteractionForm;
+export default AddInteraction;

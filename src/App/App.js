@@ -1,44 +1,43 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import './App.css';
-import LandingPage from '../LandingPage/LandingPage';
-import LandingPageNav from '../LandingPage/LandingPageNav';
-import MainAppNav from '../MainAppNav/MainAppNav';
-import AddBondForm from '../AddBondForm/AddBondForm';
-import AddInteractionForm from '../AddInteractionForm/AddInteractionForm';
-import FilterableBondsList from '../FilterableBondsList/FilterableBondsList';
-import FilterableInteractionsList from '../FilterableInteractionsList/FilterableInteractionsList';
+import LandingPage from '../landing-page/LandingPage';
+import MyBonds from '../bonds/MyBonds/MyBonds';
+import AddBond from '../bonds/AddBond/AddBond';
+import EditBond from '../bonds/EditBond/EditBond';
+import ViewBond from '../bonds/ViewBond/ViewBond';
+import AddInteraction from '../interactions/AddInteraction/AddInteraction';
+import EditInteraction from '../interactions/EditInteraction/EditInteraction';
+import MyInteractions from '../interactions/MyInteractions/MyInteractions';
+import ViewInteraction from '../interactions/ViewInteraction/ViewInteraction';
 
 function App(props) {
-  
-  function renderNavRoutes() {
-    return (
-      <>
-        <Route exact path="/" component={LandingPageNav} />
-        <Route path="/bonds" component={MainAppNav} />
-        <Route path="/add-bond" component={MainAppNav} />
-        <Route path="/interactions" component={MainAppNav} />
-        <Route path="/add-interaction" component={MainAppNav} />
-      </>
-    )
-  }
 
-  function renderMainRoutes() {
+  function renderRoute() {
     return (
       <>
         <Route exact path="/" component={LandingPage} />
-        <Route path="/bonds" render={() => <FilterableBondsList bonds={props.store.BONDS} />} />
-        <Route path="/add-bond" component={AddBondForm} />
-        <Route path="/interactions" render={() => <FilterableInteractionsList interactions={props.store.INTERACTIONS} />} />
-        <Route path="/add-interaction" component={AddInteractionForm} />
+        
+        <Route exact path="/bonds" render={() => (
+          <MyBonds store={props.store} />
+        )} />
+        <Route path="/bonds/add/" component={AddBond} />
+        <Route path="/bonds/view/:id" component={ViewBond} />
+        <Route path="/bonds/edit/:id" component={EditBond} />
+
+        <Route exact path="/interactions" render={() => (
+          <MyInteractions store={props.store} />
+        )} />
+        <Route path="/interactions/add/" component={AddInteraction} />
+        <Route path="/interactions/view/:id" component={ViewInteraction} />
+        <Route path="/interactions/edit/:id" component={EditInteraction} />
       </>
     )
   }
   
   return (
     <div className="App">
-      {renderNavRoutes()}
-      {renderMainRoutes()}
+      {renderRoute()}
     </div>
   );
 }
