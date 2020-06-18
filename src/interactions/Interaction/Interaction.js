@@ -23,12 +23,10 @@ function Interaction(props) {
   }
 
   return (
-    <section>
-      <header>
-          <h2><Link to={`/interactions/view/${id}`} >{name} - {formatDate(date)}</Link></h2>
-          <p>{formatDescription(description)}</p>
-      </header>
-    </section>
+    <li className="bond">
+      <h2><Link to={`/interactions/view/${id}`} >{name} - {formatDate(date)}</Link></h2>
+      <p>{formatDescription(description)}</p>
+    </li>
   )
 }
 

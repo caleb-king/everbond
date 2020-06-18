@@ -16,9 +16,9 @@ function MyInteractions(props) {
           <h1>My Interactions</h1>
         </header>
         <section>
-            <SearchAndSortForm />
+          <SearchAndSortForm />
+          <InteractionsList interactions={props.store.INTERACTIONS}/>
         </section>
-        <InteractionsList interactions={props.store.INTERACTIONS}/>
       </main>
       <div className='FAB-container'>
         <CircleButton

@@ -17,12 +17,10 @@ function Bond(props) {
   }
 
   return (
-    <section>
-      <header>
-          <h2><Link to={`/bonds/view/${id}`} >{name}</Link></h2>
-          <p className="last-interaction"><span className="last-interaction-label">Last Interaction:</span> {lastInteraction}</p>
-      </header>
-    </section>
+    <li className="bond">
+      <h2><Link to={`/bonds/view/${id}`} >{name}</Link></h2>
+      <p className="last-interaction"><span className="last-interaction-label">Last Interaction:</span> {lastInteraction}</p>
+    </li>
   )
 }
 

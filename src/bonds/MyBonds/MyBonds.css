@@ -1,9 +1,10 @@
-header {
-  padding: 45px 15px;
+section {
+  margin: auto;
+  background-color: #bbb;
 }
 
 .FAB-container {
   position: fixed;
-  bottom: 100px;
-  right: 25%;
+  bottom: 5%;
+  right: 20%;
 }

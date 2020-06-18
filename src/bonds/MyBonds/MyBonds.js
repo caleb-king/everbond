@@ -16,9 +16,9 @@ function MyBonds(props) {
           <h1>My Bonds</h1>
         </header>
         <section>
-            <SearchAndSortForm />
+          <SearchAndSortForm />
+          <BondList bonds={props.store.BONDS}/>
         </section>
-        <BondList bonds={props.store.BONDS}/>
       </main>
       <div className='FAB-container'>
         <CircleButton

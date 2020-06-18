@@ -4,7 +4,8 @@ import Interaction from '../Interaction/Interaction';
 
 function InteractionsList(props) {
   return (
-    props.interactions.map(interaction => {
+    <ul className="bond-list">
+      {props.interactions.map(interaction => {
       const { name, description, date, id } = interaction;
       
       return (
@@ -15,7 +16,10 @@ function InteractionsList(props) {
           key={id}
           id={id}/>
       );
-    })
+    })}
+    </ul>
+    
+    
   )
 }
 
