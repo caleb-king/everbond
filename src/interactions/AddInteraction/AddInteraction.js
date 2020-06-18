@@ -1,62 +1,75 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './AddInteraction.css';
+import NavBar from '../../common/NavBar/NavBar';
 
 function AddInteraction() {
-  return (
-    <main role="main">
-      <header>
-        <h1>New Interaction</h1>
-      </header>
-      <section>
-        <form id="create-bond">
-          <div className="form-section">
-            <h2>Who</h2>
-            <label htmlFor="interaction-who">Add the names of the people you interacted with.</label>
-            <input type="text" name="interaction-who" required />
-            <Link to="add-bond" className="add-group-link">+ Add a Bond</Link>
-          </div>
-          <div className="form-section">
-            <h2>What</h2>
-            <label htmlFor="interaction-what">Briefly describe the interaction.</label>
-            <textarea name="interaction-what" rows="5"></textarea>
-          </div>
-          <div className="form-section">
-            <h2>When</h2>
-            <label htmlFor="interaction-when">What date did this occur?</label>
-            <input type="number" name="date-month" placeholder="06" min="1" max="12" required /> .
-            <input type="number" name="date-day" className="date-day"  placeholder="03" min="1" max="31" required /> .
-            <input type="number" name="date-year" className="date-year" placeholder="2020" required />
-          </div>
-          <div className="form-section">
-            <h2>Where</h2>
-            <label htmlFor="interaction-where">Add a location for the interaction.</label>
-            <input type="text" name="interaction-who" />
-          </div>
-          <div className="form-section">
-            <h2>How</h2>
-            <label htmlFor="interaction-how">Select the medium used.</label>
-            <select name="interaction-how" id="interaction-how">
-              <option value="in-person">In Person</option>
-              <option value="video-call">Video Call</option>
-              <option value="phone-call">Phone Call</option>
-              <option value="text">Text</option>
-              <option value="email">Email</option>
-              <option value="letter">Letter</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-          <hr />
-          <div className="form-section">
-            <label htmlFor="interaction-notes">Additional Notes</label>
-            <textarea name="interaction-notes" rows="15" placeholder="Conversation highlights, activities, significant details..."></textarea>
-          </div>
+  let history = useHistory();
 
-          <button type="submit">Submit</button>
-          <button>Cancel</button>
-        </form>
-      </section>
-    </main>
+  function handleSubmit(e) {
+    e.preventDefault()
+    history.push('/interactions');
+  }
+
+  function handleCancel() {
+    history.push('/interactions');
+  }
+
+  return (
+    <>
+      <NavBar />
+      <main role="main">
+        <header>
+          <h1>Log New Interaction</h1>
+        </header>
+        <section>
+          <form id="add-interaction">
+            <div className="form-section">
+              <label htmlFor="name">Name</label>
+              <input type="text" name="name" required />
+            </div>
+            <div className="form-section">
+              <label htmlFor="date">Date</label>
+              <input type="number" name="date-month" placeholder="Day" min="1" max="12" required />
+              <input type="number" name="date-day" className="date-day"  placeholder="Month" min="1" max="31" required />
+              <input type="number" name="date-year" className="date-year" placeholder="Year" required />
+            </div>
+            <div className="form-section">
+              <label htmlFor="medium">Medium</label>
+              <select name="medium" id="medium">
+                <option value="in-person">In Person</option>
+                <option value="video-call">Video Call</option>
+                <option value="phone-call">Phone Call</option>
+                <option value="text">Text</option>
+                <option value="email">Email</option>
+                <option value="letter">Letter</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div className="form-section">
+              <label htmlFor="location">Location</label>
+              <input type="text" name="location" />
+            </div>
+            <div className="form-section">
+              <label htmlFor="description">Description</label>
+              <textarea 
+                name="description" 
+                rows="15" 
+                cols="100"
+                placeholder="Conversation highlights, activities, significant details...">
+              </textarea>
+            </div>
+
+            <button type="submit" onClick={handleSubmit}>
+              Submit
+            </button>
+            <button onClick={handleCancel}>
+              Cancel
+            </button>
+          </form>
+        </section>
+      </main>
+    </>
   );
 }
 

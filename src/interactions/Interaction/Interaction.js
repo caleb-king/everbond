@@ -1,23 +1,32 @@
 import React from 'react';
 import './Interaction.css';
+import { Link } from 'react-router-dom';
 
 function Interaction(props) {
-  const { names, medium, date } = props;
+  const { id, name, date, description } = props;
 
   function formatDate(date) {
-    const year = date.substr(0,4);
     const month  = date.substr(5,2);
     const day = date.substr(8,2);
-    return `${month}.${day}.${year}`;
+    return `${month}.${day}`;
+  }
+
+  function formatDescription(description) {
+    if (description.length <= 45) {
+      return description;
+    } else {
+      let formattedDescription = '';
+      formattedDescription += description.substring(0,45);
+      formattedDescription += '...';
+      return formattedDescription;
+    }
   }
 
   return (
     <section>
       <header>
-          <h2>{names} - {medium} - {formatDate(date)}</h2>
-          <button>View</button>
-          <button>Edit</button>
-          <button>Delete</button>
+          <h2><Link to={`/interactions/view/${id}`} >{name} - {formatDate(date)}</Link></h2>
+          <p>{formatDescription(description)}</p>
       </header>
     </section>
   )

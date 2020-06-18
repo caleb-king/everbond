@@ -1,16 +1,36 @@
 import React from 'react';
 import './MyInteractions.css';
 import InteractionsList from '../InteractionsList/InteractionsList';
+import NavBar from '../../common/NavBar/NavBar';
+import { Link } from 'react-router-dom';
+import SearchAndSortForm from '../../common/SearchAndSortForm/SearchAndSortForm';
+import CircleButton from '../../common/CircleFab/CircleFAB';
+
 
 function MyInteractions(props) {
   return (
-    <main role="main">
-      <header role="banner">
-        <h1>My Interactions</h1>
-      </header>
-      {/* <InteractionFiltering /> */}
-      <InteractionsList interactions={props.store.INTERACTIONS}/>
-    </main>
+    <>
+      <NavBar />
+      <main role="main">
+        <header role="banner">
+          <h1>My Interactions</h1>
+        </header>
+        <section>
+            <SearchAndSortForm />
+        </section>
+        <InteractionsList interactions={props.store.INTERACTIONS}/>
+      </main>
+      <div className='FAB-container'>
+        <CircleButton
+          tag={Link}
+          to='/interactions/add'
+          type='button'
+          className='add-bond-button'
+        >
+          + ADD
+        </CircleButton>
+      </div>
+    </>
   );
 }
 

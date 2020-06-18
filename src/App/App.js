@@ -33,8 +33,12 @@ function App(props) {
           <MyInteractions store={props.store} />
         )} />
         <Route path="/interactions/add/" component={AddInteraction} />
-        <Route path="/interactions/view/:interactionID" component={ViewInteraction} />
-        <Route path="/interactions/edit/:interactionID" component={EditInteraction} />
+        <Route path="/interactions/view/:interactionID" render={() => (
+          <ViewInteraction store={props.store} />
+        )} />
+        <Route path="/interactions/edit/:interactionID" render={() => (
+          <EditInteraction store={props.store} />
+        )} />
       </>
     )
   }

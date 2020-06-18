@@ -21,15 +21,15 @@ function MyBonds(props) {
         <BondList bonds={props.store.BONDS}/>
       </main>
       <div className='FAB-container'>
-          <CircleButton
-            tag={Link}
-            to='/bonds/add'
-            type='button'
-            className='add-bond-button'
-          >
-            + ADD
-          </CircleButton>
-        </div>
+        <CircleButton
+          tag={Link}
+          to='/bonds/add'
+          type='button'
+          className='add-bond-button'
+        >
+          + ADD
+        </CircleButton>
+      </div>
     </>
   );
 }
