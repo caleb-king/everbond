@@ -1,8 +1,9 @@
 import React from 'react';
 import './Bond.css';
+import { Link } from 'react-router-dom';
 
 function Bond(props) {
-  const { name } = props;
+  const { name, id } = props;
 
   //TO DO - figure out how to calculate/query the last interaction for each Bond
   //for now leave this hard coded
@@ -18,11 +19,8 @@ function Bond(props) {
   return (
     <section>
       <header>
-          <h2>{name}</h2>
+          <h2><Link to={`/bonds/view/${id}`} >{name}</Link></h2>
           <p className="last-interaction"><span className="last-interaction-label">Last Interaction:</span> {lastInteraction}</p>
-          <button>View</button>
-          <button>Edit</button>
-          <button>Delete</button>
       </header>
     </section>
   )

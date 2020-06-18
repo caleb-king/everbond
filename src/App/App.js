@@ -22,15 +22,19 @@ function App(props) {
           <MyBonds store={props.store} />
         )} />
         <Route path="/bonds/add/" component={AddBond} />
-        <Route path="/bonds/view/:id" component={ViewBond} />
-        <Route path="/bonds/edit/:id" component={EditBond} />
+        <Route path="/bonds/view/:bondID" render={() => (
+          <ViewBond store={props.store} />
+        )} />
+        <Route path="/bonds/edit/:bondID" render={() => (
+          <EditBond store={props.store} />
+        )} />
 
         <Route exact path="/interactions" render={() => (
           <MyInteractions store={props.store} />
         )} />
         <Route path="/interactions/add/" component={AddInteraction} />
-        <Route path="/interactions/view/:id" component={ViewInteraction} />
-        <Route path="/interactions/edit/:id" component={EditInteraction} />
+        <Route path="/interactions/view/:interactionID" component={ViewInteraction} />
+        <Route path="/interactions/edit/:interactionID" component={EditInteraction} />
       </>
     )
   }

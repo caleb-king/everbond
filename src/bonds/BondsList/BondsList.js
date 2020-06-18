@@ -9,6 +9,7 @@ function BondsList(props) {
         <Bond 
           name={bond.name} 
           key={bond.id}
+          id={bond.id}
         />
       );
     })

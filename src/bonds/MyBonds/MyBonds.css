@@ -1,3 +1,9 @@
 header {
   padding: 45px 15px;
 }
+
+.FAB-container {
+  position: fixed;
+  bottom: 100px;
+  right: 25%;
+}

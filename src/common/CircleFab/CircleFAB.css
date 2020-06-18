@@ -1,0 +1,23 @@
+.CircleFAB {
+  background-color: rgb(0, 168, 42);
+  border-radius: 100%;
+  border: 0;
+  color: black;
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+  height: 150px;
+  line-height: 120px;
+  padding: 8px;
+  text-align: center;
+  text-decoration: none;
+  width: 150px;
+}
+
+a.CircleFAB {
+  padding: 16px 8px 8px;
+}
+
+.CircleFAB:hover {
+  cursor: pointer;
+}
