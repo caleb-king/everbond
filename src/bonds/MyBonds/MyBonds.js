@@ -17,7 +17,9 @@ function MyBonds(props) {
           <h1>My Bonds</h1>
         </header>
         <section>
-          <SearchAndSortForm />
+          <SearchAndSortForm 
+            filterText={filterText}
+            setFilterText={setFilterText}/>
           <BondList 
             bonds={props.store.BONDS}
             filterText={filterText}/>

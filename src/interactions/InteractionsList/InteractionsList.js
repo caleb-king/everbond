@@ -3,9 +3,13 @@ import './InteractionsList.css';
 import Interaction from '../Interaction/Interaction';
 
 function InteractionsList(props) {
+  const { interactions, filterText } = props;
+  
+  const filteredInteractions = interactions.filter(interaction => interaction.name.toLowerCase().indexOf(filterText.toLowerCase()) !== -1);
+  
   return (
     <ul className="bond-list">
-      {props.interactions.map(interaction => {
+      {filteredInteractions.map(interaction => {
       const { name, description, date, id } = interaction;
       
       return (

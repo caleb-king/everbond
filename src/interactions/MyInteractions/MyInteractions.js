@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './MyInteractions.css';
 import InteractionsList from '../InteractionsList/InteractionsList';
 import NavBar from '../../common/NavBar/NavBar';
@@ -8,6 +8,8 @@ import CircleButton from '../../common/CircleFab/CircleFAB';
 
 
 function MyInteractions(props) {
+  const [filterText, setFilterText] = useState('');
+  
   return (
     <>
       <NavBar />
@@ -16,8 +18,12 @@ function MyInteractions(props) {
           <h1>My Interactions</h1>
         </header>
         <section>
-          <SearchAndSortForm />
-          <InteractionsList interactions={props.store.INTERACTIONS}/>
+          <SearchAndSortForm 
+            filterText={filterText}
+            setFilterText={setFilterText}/>
+          <InteractionsList 
+            interactions={props.store.INTERACTIONS}
+            filterText={filterText}/>
         </section>
       </main>
       <div className='FAB-container'>
