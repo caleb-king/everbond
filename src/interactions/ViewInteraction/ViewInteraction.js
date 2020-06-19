@@ -1,7 +1,7 @@
 import React from 'react';
 import NavBar from '../../common/NavBar/NavBar';
 import CircleButton from '../../common/CircleFab/CircleFAB';
-import { Link, useParams, useHistory } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './ViewInteraction.css';
 
 function ViewInteraction(props) {

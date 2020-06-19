@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './MyBonds.css';
 import NavBar from '../../common/NavBar/NavBar';
 import { Link } from 'react-router-dom';
 import SearchAndSortForm from '../../common/SearchAndSortForm/SearchAndSortForm';
 import BondList from '../BondsList/BondsList';
 import CircleButton from '../../common/CircleFab/CircleFAB';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function MyBonds(props) {
+  const [filterText, setFilterText] = useState('');
+  
   return (
     <>
       <NavBar />
@@ -17,7 +18,9 @@ function MyBonds(props) {
         </header>
         <section>
           <SearchAndSortForm />
-          <BondList bonds={props.store.BONDS}/>
+          <BondList 
+            bonds={props.store.BONDS}
+            filterText={filterText}/>
         </section>
       </main>
       <div className='FAB-container'>

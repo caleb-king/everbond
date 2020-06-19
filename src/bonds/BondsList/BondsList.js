@@ -3,9 +3,15 @@ import './BondsList.css';
 import Bond from '../Bond/Bond';
 
 function BondsList(props) {
+  const { bonds, filterText } = props;
+  
+  const filteredBonds = bonds.filter(bond => bond.name.toLowerCase().indexOf(filterText.toLowerCase()) !== -1);
+
+  //sort bonds
+  
   return (
     <ul className="bond-list">
-      {props.bonds.map(bond => {
+      {filteredBonds.map(bond => {
         return (
           <Bond 
             name={bond.name} 

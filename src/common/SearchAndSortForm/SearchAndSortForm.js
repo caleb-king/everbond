@@ -5,11 +5,11 @@ function SearchAndSortForm() {
   return (
     <form>
       <input placeholder="Search"/>
-      <br />
+      {/* <br />
       <select name="sort" id="sort">
         <option value="time">Sort by Time</option>
         <option value="name">Sort by Name</option>
-      </select>
+      </select> */}
     </form>
   )
 }

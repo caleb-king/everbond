@@ -1,7 +1,6 @@
 import React from 'react';
 import './EditInteraction.css';
 import NavBar from '../../common/NavBar/NavBar';
-import CircleButton from '../../common/CircleFab/CircleFAB';
 import { useParams, useHistory } from 'react-router-dom';
 
 function EditInteraction(props) {
