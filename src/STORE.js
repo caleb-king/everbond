@@ -21,29 +21,61 @@ const BONDS = [
 
 const INTERACTIONS = [
   {
-    id: 1,
+    id: 7,
+    name: 'Mom',
+    date: '2020-06-17',
+    medium: 'Phone Call',
+    location: '',
+    description: 'We reflected on how well Papa\'s birthday surprise went over.',
+  },
+  {
+    id: 4,
+    name: 'Justin Wellum',
+    date: '2020-05-26',
+    medium: 'Video Call',
+    location: '',
+    description: 'Discussed his promotion and how we are each doing with the Covid lockdown',
+  },
+  {
+    id: 6,
     name: 'Grandma',
+    date: '2020-05-17',
+    medium: 'Phone Call',
+    location: '',
+    description: 'We mostly talked about her new puppy',
+  },
+  {
+    id: 5,
+    name: 'Mom',
     date: '2020-05-07',
+    medium: 'Phone Call',
+    location: '',
+    description: 'I shared the news about passing my server-side mock interview.',
+  },
+  {
+    id: 3,
+    name: 'Grandma',
+    date: '2020-04-28',
     medium: 'Phone Call',
     location: '',
     description: 'We had a short chat to catch up.',
   },
   {
     id: 2,
-    name: 'Justin Wellum',
-    date: '2020-05-17',
+    name: 'Mom',
+    date: '2020-04-21',
     medium: 'Video Call',
     location: '',
-    description: 'Discussed his promotion and how we are each doing with the Covid lockdown',
+    description: 'Discussed how my sisters are doing',
   },
   {
-    id: 3,
-    name: 'Mom',
-    date: '2020-05-26',
-    medium: 'Phone Call',
-    location: '',
+    id: 1,
+    name: 'Justin Wellum',
+    date: '2020-04-16',
+    medium: 'In Person',
+    location: 'Denver, CO',
     description: 'I shared the news about passing my server-side mock interview.',
-  }
+  },
 ];
 
 export default {

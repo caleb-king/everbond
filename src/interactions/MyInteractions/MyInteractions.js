@@ -9,6 +9,7 @@ import CircleButton from '../../common/CircleFab/CircleFAB';
 
 function MyInteractions(props) {
   const [filterText, setFilterText] = useState('');
+  const [sortOption, setSortOption]  = useState('time');
   
   return (
     <>
@@ -20,10 +21,13 @@ function MyInteractions(props) {
         <section>
           <SearchAndSortForm 
             filterText={filterText}
-            setFilterText={setFilterText}/>
+            setFilterText={setFilterText}
+            sortOption={sortOption}
+            setSortOption={setSortOption}/>
           <InteractionsList 
             interactions={props.store.INTERACTIONS}
-            filterText={filterText}/>
+            filterText={filterText}
+            sortOption={sortOption}/>
         </section>
       </main>
       <div className='FAB-container'>

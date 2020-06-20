@@ -8,6 +8,7 @@ import CircleButton from '../../common/CircleFab/CircleFAB';
 
 function MyBonds(props) {
   const [filterText, setFilterText] = useState('');
+  const [sortOption, setSortOption]  = useState('name');
   
   return (
     <>
@@ -19,10 +20,14 @@ function MyBonds(props) {
         <section>
           <SearchAndSortForm 
             filterText={filterText}
-            setFilterText={setFilterText}/>
+            setFilterText={setFilterText}
+            sortOption={sortOption}
+            setSortOption={setSortOption}/>
           <BondList 
             bonds={props.store.BONDS}
-            filterText={filterText}/>
+            interactions={props.store.INTERACTIONS}
+            filterText={filterText}
+            sortOption={sortOption}/>
         </section>
       </main>
       <div className='FAB-container'>
