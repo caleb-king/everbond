@@ -11,12 +11,6 @@ section {
   background-color: #bbb;
 }
 
-
-p {
-  margin: 0 auto;
-  max-width: 650px;
-}
-
 p + p {
   margin-top: 15px;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import './Bond.css';
+import { FaUserCircle } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { formatTimeSince } from '../../helper';
 
@@ -8,9 +9,9 @@ function Bond(props) {
 
   return (
     <li className="bond">
-      <h2><Link to={`/bonds/view/${id}`} >{name}</Link></h2>
+      <FaUserCircle size={54} className="user-icon"/>
+      <h2 className="bond-name"><Link to={`/bonds/view/${id}`} >{name}</Link></h2>
       <p className="last-interaction">
-        <span className="last-interaction-label">Time Since Last Interaction: </span> 
         {formatTimeSince(timeSinceLastInteraction)}
       </p>
     </li>

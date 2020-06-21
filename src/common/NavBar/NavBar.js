@@ -13,11 +13,11 @@ function NavBar() {
     <nav role="navigation">
     <div className="nav-right">
       <ul>
-        <li>
-          <Link to="/bonds" className={isOnBondsPage && 'selected'}><FaLink size={15}/>     Bonds</Link>
+        <li className="nav-bar-li">
+          <Link to="/bonds" className={`${isOnBondsPage && 'selected'} nav-icon`}><FaLink size={15}/>     Bonds</Link>
         </li>
-        <li>
-          <Link to="/interactions" className={isOnInteractionsPage && 'selected'}><FaExchangeAlt  size={15}/>     Interactions</Link>
+        <li className="nav-bar-li">
+          <Link to="/interactions" className={`${isOnInteractionsPage && 'selected'} nav-icon`}><FaExchangeAlt  size={15}/>     Interactions</Link>
         </li>
       </ul>
     </div>

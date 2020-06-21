@@ -49,18 +49,21 @@ function BondsList(props) {
   const myBondsList = sortBonds(bondsWithTimeSince, sortOption);
   
   return (
-    <ul className="bond-list">
-      {myBondsList.map(bond => {
-        return (
-          <Bond 
-            name={bond.name} 
-            key={bond.id}
-            id={bond.id}
-            timeSinceLastInteraction={bond.timeSinceLastInteraction}
-          />
-        );
-      })}
-    </ul>
+    <>
+      <p className="time-since-label">Time Since Last Interaction</p>
+      <ul className="bond-list">
+        {myBondsList.map(bond => {
+          return (
+            <Bond 
+              name={bond.name} 
+              key={bond.id}
+              id={bond.id}
+              timeSinceLastInteraction={bond.timeSinceLastInteraction}
+            />
+          );
+        })}
+      </ul>
+    </>
   )
 }
 

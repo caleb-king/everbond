@@ -14,9 +14,9 @@ function SearchAndSortForm(props) {
 
   return (
     <form>
-      <input placeholder="Search By Name..." value={filterText} onChange={handleSearchInputChange}/>
+      <input placeholder="Search By Name..." className="search-field" value={filterText} onChange={handleSearchInputChange}/>
       <br />
-      <select name="sort" id="sort" value={sortOption} onChange={handleSortOptionChange}>
+      <select name="sort" id="sort" className="sort-field" value={sortOption} onChange={handleSortOptionChange}>
         <option value="time">Sort by Time</option>
         <option value="name">Sort by Name</option>
       </select>

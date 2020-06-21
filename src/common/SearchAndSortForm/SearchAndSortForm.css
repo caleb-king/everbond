@@ -1,9 +1,13 @@
 form {
-  padding: 15px;
+  padding: 0px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 0;
   margin-bottom: 0;
   text-align: left;
   max-width: 500px;
+}
+
+.search-field, .sort-field {
+  margin-left: 74px;
 }
