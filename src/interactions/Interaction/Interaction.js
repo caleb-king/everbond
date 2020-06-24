@@ -23,7 +23,7 @@ function Interaction(props) {
   }
 
   return (
-    <li className="bond">
+    <li className="interaction">
       <h2><Link to={`/interactions/view/${id}`} >{name} - {formatDate(date)}</Link></h2>
       <p>{formatDescription(description)}</p>
     </li>

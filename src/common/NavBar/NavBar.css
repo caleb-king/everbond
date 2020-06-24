@@ -1,8 +1,24 @@
-.nav-bar-li {
-  padding-right: 20px;
+.main-nav {
+  display: flex;
+  height: 50px;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #00a000;
+  font-weight: bold;
+}
+
+.main-nav ul {
+  display: flex;
+  min-width: 250px;
+  width: 50%;
+  max-width: 300px;
+  justify-content: space-between;
+}
+
+.main-nav svg {
+  margin-right: 5px;
 }
 
 .selected {
-  font-weight: bold;
   border-bottom: 2px solid black;
 }

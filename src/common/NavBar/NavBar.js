@@ -10,18 +10,16 @@ function NavBar() {
   const isOnInteractionsPage = currentLocation.includes('interactions');
   
   return (
-    <nav role="navigation">
-    <div className="nav-right">
+    <nav className="main-nav" role="navigation">
       <ul>
         <li className="nav-bar-li">
-          <Link to="/bonds" className={`${isOnBondsPage && 'selected'} nav-icon`}><FaLink size={15}/>     Bonds</Link>
+          <Link to="/bonds" className={`${isOnBondsPage && 'selected'} nav-icon`}><FaLink size={15}/>Bonds</Link>
         </li>
         <li className="nav-bar-li">
-          <Link to="/interactions" className={`${isOnInteractionsPage && 'selected'} nav-icon`}><FaExchangeAlt  size={15}/>     Interactions</Link>
+          <Link to="/interactions" className={`${isOnInteractionsPage && 'selected'} nav-icon`}><FaExchangeAlt  size={15}/>Interactions</Link>
         </li>
       </ul>
-    </div>
-  </nav>
+    </nav>
   );
 }
 
