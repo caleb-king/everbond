@@ -1,24 +1,32 @@
 .main-nav {
   display: flex;
-  height: 50px;
+  height: 48px;
   justify-content: space-around;
   align-items: center;
-  background-color: #00a000;
+  background-color: #90BCB3;
   font-weight: bold;
+  box-shadow: 0 2px 4px -1px rgba(0,0,0,0.25);
 }
 
 .main-nav ul {
   display: flex;
-  min-width: 250px;
-  width: 50%;
-  max-width: 300px;
-  justify-content: space-between;
+  width: 100%;
+  max-width: 500px;
+  justify-content: space-evenly;
+  margin-bottom: 3px;
 }
 
-.main-nav svg {
-  margin-right: 5px;
+.main-nav i {
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.main-nav a {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
 }
 
 .selected {
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid #262626;
 }

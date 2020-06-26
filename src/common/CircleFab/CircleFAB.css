@@ -1,23 +1,21 @@
 .CircleFAB {
-  background-color: #00a000;
+  background-color: #90BCB3;
   border-radius: 100%;
-  border: 0;
-  color: black;
-  display: block;
+  display: flex;
   font-size: 24px;
   font-weight: bold;
-  height: 150px;
-  line-height: 120px;
-  padding: 8px;
+  height: 60px;
+  width: 60px;
   text-align: center;
   text-decoration: none;
-  width: 150px;
-}
-
-a.CircleFAB {
-  padding: 16px 8px 8px;
+  align-items: center;
+  box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.4);
 }
 
 .CircleFAB:hover {
   cursor: pointer;
+}
+
+.CircleFAB i {
+  width: 100%;
 }

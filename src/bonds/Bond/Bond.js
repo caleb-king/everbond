@@ -9,11 +9,13 @@ function Bond(props) {
 
   return (
     <li className="bond">
-      <FaUserCircle size={54} className="user-icon"/>
-      <h2 className="bond-name"><Link to={`/bonds/view/${id}`} >{name}</Link></h2>
-      <p className="last-interaction">
-        {formatTimeSince(timeSinceLastInteraction)}
-      </p>
+      <i className="fas fa-user-circle"></i>
+      <div className="bond-content-container">
+        <Link className="bond-name" to={`/bonds/view/${id}`} >{name}</Link>
+        <p className="last-interaction">
+          {formatTimeSince(timeSinceLastInteraction)}
+        </p>
+      </div>
     </li>
   )
 }

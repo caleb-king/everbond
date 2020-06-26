@@ -1,13 +1,20 @@
-form {
-  padding: 0px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0;
-  margin-bottom: 0;
-  text-align: left;
-  max-width: 500px;
+.search-and-sort-form {
+  margin: 0 auto 30px;
+}
+
+.search-and-sort-form i {
+  margin-left: 50px;
+  margin-right: 10px;
 }
 
 .search-field, .sort-field {
-  margin-left: 74px;
+  width: 200px;
+  padding: 6px 6px;
+  outline-color: #90BCB3;
+  border: 1.5px solid #5e5e5e;
+  border-radius: 3px;
+}
+
+.search-field {
+  margin-bottom: 15px;
 }

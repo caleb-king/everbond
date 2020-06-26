@@ -1,10 +1,5 @@
-section {
-  margin: auto;
-  background-color: #bbb;
-}
-
 .FAB-container {
   position: fixed;
-  bottom: 5%;
-  right: 20%;
+  bottom: 50px;
+  right: 15px;
 }

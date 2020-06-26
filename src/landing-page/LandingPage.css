@@ -1,16 +1,3 @@
-main {
-  margin-top: 25px;
-}
-
-header {
-  padding: 45px 15px;
-}
-
-section {
-  padding: 30px 15px;
-  background-color: #bbb;
-}
-
 p + p {
   margin-top: 15px;
 }

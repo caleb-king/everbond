@@ -12,10 +12,17 @@ function SearchAndSortForm(props) {
     setSortOption(e.target.value);
   }
 
+  function renderSortIcon(sortOption) {
+    if (sortOption === 'name') return <i class="fas fa-user"></i>;
+    return <i class="fas fa-history"></i>
+  }
+
   return (
-    <form>
+    <form className="search-and-sort-form">
+      <i class="fas fa-search"></i>
       <input placeholder="Search By Name..." className="search-field" value={filterText} onChange={handleSearchInputChange}/>
       <br />
+      {renderSortIcon(sortOption)}
       <select name="sort" id="sort" className="sort-field" value={sortOption} onChange={handleSortOptionChange}>
         <option value="time">Sort by Time</option>
         <option value="name">Sort by Name</option>

@@ -29,17 +29,17 @@ function MyBonds(props) {
             filterText={filterText}
             sortOption={sortOption}/>
         </section>
+        <div className='FAB-container'>
+          <CircleButton
+            tag={Link}
+            to='/bonds/add'
+            type='button'
+            className='add-bond-button'
+          >
+            <i class="fas fa-plus"></i>
+          </CircleButton>
+        </div>
       </main>
-      <div className='FAB-container'>
-        <CircleButton
-          tag={Link}
-          to='/bonds/add'
-          type='button'
-          className='add-bond-button'
-        >
-          + ADD
-        </CircleButton>
-      </div>
     </>
   );
 }
