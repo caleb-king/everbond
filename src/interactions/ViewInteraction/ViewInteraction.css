@@ -1,0 +1,43 @@
+.view-interaction {
+  text-align: left;
+}
+
+.view-interaction i {
+  padding: 15px 10px;
+}
+
+.view-interaction p, .view-interaction textarea {
+  display: inline;
+}
+
+.view-interaction textarea {
+  min-width: 250px;
+  border: 1.5px solid #5e5e5e;
+  border-radius: 3px;
+  background-color: #EBEBEB;
+  padding: 6px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.8rem;
+  color: #262626;
+}
+
+.view-interaction-description {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5px;
+}
+
+.view-interaction-description .fa-sticky-note {
+  padding-top: 8px;
+}
+
+.view-interaction .fa-arrows-alt-h {
+  padding-left: 9px;
+  padding-right: 9px
+}
+
+.view-interaction .fa-map-marker-alt {
+  padding-left: 11px;
+  padding-right: 11px
+}
+

@@ -12,10 +12,10 @@ function NavBar() {
     <nav className="main-nav" role="navigation">
       <ul>
         <li className="nav-bar-li">
-          <Link to="/bonds" className={`${isOnBondsPage && 'selected'} nav-icon`}><i class="fas fa-link"></i>Bonds</Link>
+          <Link to="/bonds" className={`${isOnBondsPage && 'selected'} nav-icon`}><i className="fas fa-link"></i>Bonds</Link>
         </li>
         <li className="nav-bar-li">
-          <Link to="/interactions" className={`${isOnInteractionsPage && 'selected'} nav-icon`}><i class="fas fa-exchange-alt"></i>Interactions</Link>
+          <Link to="/interactions" className={`${isOnInteractionsPage && 'selected'} nav-icon`}><i className="fas fa-exchange-alt"></i>Interactions</Link>
         </li>
       </ul>
     </nav>

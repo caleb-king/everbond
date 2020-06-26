@@ -26,6 +26,7 @@ function MyInteractions(props) {
             setSortOption={setSortOption}/>
           <InteractionsList 
             interactions={props.store.INTERACTIONS}
+            bonds={props.store.BONDS}
             filterText={filterText}
             sortOption={sortOption}/>
         </section>
@@ -37,7 +38,7 @@ function MyInteractions(props) {
           type='button'
           className='add-bond-button'
         >
-          + ADD
+          <i className="fas fa-plus"></i>
         </CircleButton>
       </div>
     </>

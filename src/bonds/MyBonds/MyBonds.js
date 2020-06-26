@@ -36,7 +36,7 @@ function MyBonds(props) {
             type='button'
             className='add-bond-button'
           >
-            <i class="fas fa-plus"></i>
+            <i className="fas fa-plus"></i>
           </CircleButton>
         </div>
       </main>

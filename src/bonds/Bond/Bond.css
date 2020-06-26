@@ -23,7 +23,12 @@
   padding: 7.5px 0;
 }
 
-li:last-child div{
+.bond-content-container:hover {
+  cursor: pointer;
+  background-color:  #E6EFEE;
+}
+
+li:last-child .bond-content-container{
   border-bottom: 2px solid #5e5e5e;
 }
 
@@ -35,4 +40,8 @@ li:last-child div{
 .last-interaction {
   color: #5e5e5e;
   font-size: 1rem;
+}
+
+.bond .user-img:hover {
+  opacity: .8;
 }

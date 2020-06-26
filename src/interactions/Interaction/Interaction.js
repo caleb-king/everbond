@@ -1,31 +1,33 @@
 import React from 'react';
 import './Interaction.css';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { formatDate } from '../../helper';
 
 function Interaction(props) {
-  const { id, name, date, description } = props;
+  const { interactionId, bondId, name, date, description } = props;
 
-  function formatDate(date) {
-    const month  = date.substr(5,2);
-    const day = date.substr(8,2);
-    return `${month}.${day}`;
-  }
+  let history = useHistory();
 
-  function formatDescription(description) {
-    if (description.length <= 45) {
-      return description;
-    } else {
-      let formattedDescription = '';
-      formattedDescription += description.substring(0,45);
-      formattedDescription += '...';
-      return formattedDescription;
-    }
+  function handleInteractionClicked() {
+    history.push(`/interactions/view/${interactionId}`);
   }
 
   return (
     <li className="interaction">
-      <h2><Link to={`/interactions/view/${id}`} >{name} - {formatDate(date)}</Link></h2>
-      <p>{formatDescription(description)}</p>
+      <Link className="user-img" to={`/bonds/view/${bondId}`}><i className="fas fa-user-circle"></i></Link>
+      <div className="interaction-content-container" onClick={handleInteractionClicked}>
+        <div className="interaction-name-and-date">
+          <Link className="interaction-name" to={`/interactions/view/${interactionId}`} >
+            {name}
+          </Link>
+          <p className="interaction-date" >
+            {formatDate(date)}
+          </p>
+        </div>
+        <p className="interaction-description">
+          {description}
+        </p>
+      </div>
     </li>
   )
 }

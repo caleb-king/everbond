@@ -1,9 +1,61 @@
 .interaction {
-  padding-top: 15px;
-  padding-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-.interaction h2 {
-  margin-top: 10px;
-  margin-bottom: 10px;
+.interaction i {
+  font-size: 36px;
+  margin: 5px 15px 5px 0;
+}
+
+.interaction-content-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  border-top: 2px solid #5e5e5e; 
+  padding: 7.5px 0;
+  min-width: 0;
+}
+
+li:last-child .interaction-content-container{
+  border-bottom: 2px solid #5e5e5e;
+}
+
+.interaction-name-and-date {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.interaction-name {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.interaction-date {
+  color: #5e5e5e;
+  font-size: 1rem;
+}
+
+.interaction-description {
+  font-size: .75rem;
+  color: #5e5e5e;
+  width: 100%;
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.interaction .user-img:hover {
+  opacity: .8;
+}
+
+.interaction-content-container:hover {
+  cursor: pointer;
+  background-color:  #E6EFEE;
 }

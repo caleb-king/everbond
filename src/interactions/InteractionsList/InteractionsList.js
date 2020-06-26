@@ -4,7 +4,7 @@ import Interaction from '../Interaction/Interaction';
 import { daysSince } from '../../helper';
 
 function InteractionsList(props) {
-  const { interactions, filterText, sortOption } = props;
+  const { interactions, bonds, filterText, sortOption } = props;
 
   function filterInteractions(interactions, filterText) {
     return interactions.filter(interaction => interaction.name.toLowerCase().indexOf(filterText.toLowerCase()) !== -1);
@@ -42,6 +42,8 @@ function InteractionsList(props) {
     <ul className="interaction-list">
       {myInteractionsList.map(interaction => {
       const { name, description, date, id } = interaction;
+      const bondIndex = bonds.findIndex(bond => bond.name === name);
+      const bondId = bonds[bondIndex].id;
       
       return (
         <Interaction 
@@ -49,7 +51,8 @@ function InteractionsList(props) {
           description={description}
           date={date} 
           key={id}
-          id={id}/>
+          interactionId={id}
+          bondId={bondId}/>
       );
     })}
     </ul>

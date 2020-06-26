@@ -13,13 +13,13 @@ function SearchAndSortForm(props) {
   }
 
   function renderSortIcon(sortOption) {
-    if (sortOption === 'name') return <i class="fas fa-user"></i>;
-    return <i class="fas fa-history"></i>
+    if (sortOption === 'name') return <i className="fas fa-user"></i>;
+    return <i className="fas fa-history"></i>
   }
 
   return (
     <form className="search-and-sort-form">
-      <i class="fas fa-search"></i>
+      <i className="fas fa-search"></i>
       <input placeholder="Search By Name..." className="search-field" value={filterText} onChange={handleSearchInputChange}/>
       <br />
       {renderSortIcon(sortOption)}

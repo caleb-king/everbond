@@ -17,3 +17,40 @@ export const daysSince = (date) => {
   const daysSince = Math.ceil(timeSince / (1000 * 60 * 60 * 24)); 
   return daysSince;
 }
+
+const months = {
+  0: 'Jan',
+  1: 'Feb',
+  2: 'Mar',
+  3: 'Apr',
+  4: 'May',
+  5: 'Jun',
+  6: 'Jul',
+  7: 'Aug',
+  8: 'Sep',
+  9: 'Oct',
+  10: 'Nov',
+  11: 'Dec'
+}
+
+export const formatBirthday = (date) => {
+  const d = new Date(date)
+  const monthName = months[d.getMonth()];
+  const day = d.getDate();
+  return `${monthName} ${day}`;
+}
+
+export const formatDate = (date) => {
+  const d = new Date(date)
+  const monthName = months[d.getMonth()];
+  const day = d.getDate() + 1;
+  return `${monthName} ${day}`;
+}
+
+export const formatDateWithYear = (date) => {
+  const d = new Date(date)
+  const monthName = months[d.getMonth()];
+  const day = d.getDate() + 1;
+  const year = d.getFullYear();
+  return `${monthName} ${day}, ${year}`;
+}

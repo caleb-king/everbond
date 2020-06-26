@@ -1,10 +1,15 @@
 .search-and-sort-form {
-  margin: 0 auto 30px;
+  margin: 0 auto;
 }
 
 .search-and-sort-form i {
   margin-left: 50px;
   margin-right: 10px;
+}
+
+.fa-user {
+  padding-left: 1px;
+  padding-right:1px;
 }
 
 .search-field, .sort-field {
@@ -13,6 +18,7 @@
   outline-color: #90BCB3;
   border: 1.5px solid #5e5e5e;
   border-radius: 3px;
+  background-color: #ffffff;
 }
 
 .search-field {

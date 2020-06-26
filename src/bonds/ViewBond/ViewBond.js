@@ -3,14 +3,16 @@ import { Link, useParams } from 'react-router-dom';
 import './ViewBond.css';
 import NavBar from '../../common/NavBar/NavBar';
 import CircleButton from '../../common/CircleFab/CircleFAB';
+import { formatBirthday } from '../../helper';
 
 function ViewBond(props) {
-  const { bondID } = useParams();
-  const { name, birthday, notes } = props.store.BONDS[bondID - 1];
-
-  const month = birthday.substring(0,2);
-  const day = birthday.substring(3);
+  const bondIdAsString = useParams().bondID;
+  const bondIdAsNum = parseInt(bondIdAsString,10);
+  const bonds = props.store.BONDS;
   
+  const bondIndex = bonds.findIndex(bond => bond.id === bondIdAsNum);
+  const { name, birthday, notes } = bonds[bondIndex];
+
   return (
     <>
       <NavBar />
@@ -18,30 +20,29 @@ function ViewBond(props) {
         <header>
           <h1>View Bond</h1>
         </header>
-        <section>
-          <h1>{name}</h1>
-          <form id="view-bond">
-          <div className="form-section">
-            <p className="bond-birthday">Birthday</p>
-            <input type="number" name="date-month" disabled value={month}/>
-            <input type="number" name="date-day" className="date-day" disabled value={day}/>
+        <section className="view-bond-data">
+          <div className="view-bond-img-and-name">
+            <i className="fas fa-user-circle"></i>
+            <h2>{name}</h2>
           </div>
-          <div className="form-section">
-            <label htmlFor="bond-notes">Notes</label>
-            <textarea name="bond-notes" rows="15" cols="100" disabled value={notes}></textarea>
+          <div className="view-bond-birthday">
+            <i className="fas fa-birthday-cake"></i>
+            <p aria-label="Birthday">{formatBirthday(birthday)}</p>
           </div>
-
-          </form>
+          <div className="view-bond-notes">
+            <i className="fas fa-sticky-note"></i>
+            <textarea aria-label="Notes" name="bond-notes" rows="15" disabled value={notes}></textarea>
+          </div>
         </section>
       </main>
       <div className='FAB-container'>
         <CircleButton
           tag={Link}
-          to={`/bonds/edit/${bondID}`}
+          to={`/bonds/edit/${bondIdAsNum}`}
           type='button'
           className='edit-bond-button'
         >
-          / EDIT
+          <i className="fas fa-pen"></i>
         </CircleButton>
       </div>
     </>
