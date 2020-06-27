@@ -2,19 +2,19 @@ const BONDS = [
   {
     id: 1,
     name: 'Mom',
-    birthday: '04-21',
+    birthday: '04/21',
     notes: 'Prefers video chat when possible.\nWhen would be a good time to visit next?'
   },
   {
     id: 2,
     name: 'Justin Wellum',
-    birthday: '07-06',
+    birthday: '07/06',
     notes: 'Enjoys recieving gifts - possibly something new for his house?\n\nPlanning on having him and Maddy over for dinner soon.'
   },
   {
     id: 3,
     name: 'Grandma',
-    birthday: '02-18',
+    birthday: '02/18',
     notes: 'Loves to get hand written letters. Also enjoys Facebook messages.\nBe sure to ask about the new puppy.'
   }
 ];

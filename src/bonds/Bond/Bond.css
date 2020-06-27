@@ -32,7 +32,7 @@ li:last-child .bond-content-container{
   border-bottom: 2px solid #5e5e5e;
 }
 
-.bond-name {
+.bond .bond-name {
   font-size: 1.3rem;
   font-weight: bold;
 }

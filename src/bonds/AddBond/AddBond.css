@@ -10,7 +10,7 @@
   background-color: #FFFFFF;
   padding: 15px;
   font-family: "Open Sans", sans-serif;
-  font-size: 1rem;
+  font-size: .9rem;
   color: #262626;
 }
 
@@ -20,7 +20,7 @@
   border-radius: 3px;
   padding-left: 15px;
   outline-color: #90BCB3;
-  font-size: 1rem;
+  font-size: .9rem;
 }
 
 .create-bond label {
