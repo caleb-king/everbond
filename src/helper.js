@@ -18,7 +18,7 @@ export const daysSince = (date) => {
   return daysSince;
 }
 
-const months = {
+const monthsAbbr = {
   0: 'Jan',
   1: 'Feb',
   2: 'Mar',
@@ -33,6 +33,21 @@ const months = {
   11: 'Dec'
 }
 
+const months = {
+  0: 'January',
+  1: 'February',
+  2: 'March',
+  3: 'April',
+  4: 'May',
+  5: 'June',
+  6: 'July',
+  7: 'August',
+  8: 'September',
+  9: 'October',
+  10: 'November',
+  11: 'December'
+}
+
 export const formatBirthday = (date) => {
   const d = new Date(date)
   const monthName = months[d.getMonth()];
@@ -42,14 +57,14 @@ export const formatBirthday = (date) => {
 
 export const formatDate = (date) => {
   const d = new Date(date)
-  const monthName = months[d.getMonth()];
+  const monthName = monthsAbbr[d.getMonth()];
   const day = d.getDate() + 1;
   return `${monthName} ${day}`;
 }
 
 export const formatDateWithYear = (date) => {
   const d = new Date(date)
-  const monthName = months[d.getMonth()];
+  const monthName = monthsAbbr[d.getMonth()];
   const day = d.getDate() + 1;
   const year = d.getFullYear();
   return `${monthName} ${day}, ${year}`;

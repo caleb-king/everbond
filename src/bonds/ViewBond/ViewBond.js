@@ -20,7 +20,7 @@ function ViewBond(props) {
         <header>
           <h1>View Bond</h1>
         </header>
-        <section className="view-bond-data">
+        <section className="view-bond">
           <div className="view-bond-img-and-name">
             <i className="fas fa-user-circle"></i>
             <h2>{name}</h2>

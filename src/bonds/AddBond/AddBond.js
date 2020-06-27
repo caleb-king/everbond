@@ -24,27 +24,37 @@ function AddBond() {
           <h1>Create New Bond</h1>
         </header>
         <section>
-          <form id="create-bond">
+          <form id="create-bond" className="create-bond">
             <div className="form-section">
               <label htmlFor="bond-name">Name</label>
-              <input type="text" name="bond-name" required />
+              <div className="create-bond-field">
+                <i className="fas fa-user"></i>
+                <input className="bond-name" type="text" name="bond-name" required />
+              </div>
             </div>
             <div className="form-section">
-              <p className="bond-birthday">Birthday</p>
-              <input type="number" name="date-month" placeholder="Month" min="1" max="12" />
-              <input type="number" name="date-day" className="date-day"  placeholder="Day" min="1" max="31" />
+              <label htmlFor="bond-birthday">Birthday</label>
+              <div className="create-bond-field">
+                <i className="fas fa-birthday-cake"></i>
+                <input className="bond-birthday" type="text" name="bond-birthday" placeholder="MM/DD"/>
+              </div>
             </div>
             <div className="form-section">
               <label htmlFor="bond-notes">Notes</label>
-              <textarea name="bond-notes" rows="15" cols="100" placeholder="Future discussion topics, gift ideas, significant details..."></textarea>
+              <div className="create-bond-field">
+                <i className="fas fa-sticky-note"></i>
+                <textarea name="bond-notes" rows="10" placeholder="Future discussion topics, gift ideas, significant details..."></textarea>
+              </div>
             </div>
 
-            <button type="submit" onClick={handleSubmit}>
-              Create
-            </button>
-            <button onClick={handleCancel}>
-              Cancel
-            </button>
+            <div className="button-container">
+              <button className="create" type="submit" onClick={handleSubmit}>
+                CREATE
+              </button>
+              <button className="cancel" onClick={handleCancel}>
+                <i className="fas fa-times"></i>
+              </button>
+            </div>
           </form>
         </section>
       </main>

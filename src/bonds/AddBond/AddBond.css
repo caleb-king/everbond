@@ -1,15 +1,52 @@
-form {
+.create-bond {
   text-align: left;
 }
 
-input, textarea, select {
-  width: 100%;
-  max-width: 250px;
-  padding: 5px;
+.create-bond textarea{
+  min-width: 250px;
+  border: 1.5px solid #5e5e5e;
+  border-radius: 3px;
+  outline-color: #90BCB3;
+  background-color: #FFFFFF;
+  padding: 15px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  color: #262626;
 }
 
-textarea {
-  max-width: 500px;
+.create-bond input {
+  width: 100%;
+  border: 1.5px solid #5e5e5e;
+  border-radius: 3px;
+  padding-left: 15px;
+  outline-color: #90BCB3;
+  font-size: 1rem;
+}
+
+.create-bond label {
+  margin-left: 50px;
+  font-weight: bold;
+}
+
+.create-bond-field {
+  display: flex;
+  flex-direction: row;
+}
+
+.create-bond .form-section {
+  margin-bottom: 15px;
+}
+
+.create-bond i {
+  padding: 15px 10px;
+}
+
+.create-bond .bond-birthday {
+  width: 100px;
+}
+
+.create-bond .bond-name {
+  width: 200px;
 }
 
 input[type="number"] {
@@ -20,14 +57,35 @@ label {
   display: block;
 }
 
-.form-section {
-  margin-bottom: 30px;
+.create-bond .create {
+  background-color: #90BCB3;
+  width: 240px;
+  height: 60px;
+  border-radius: 30px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  border: none;
+  box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.4);
+  margin-right: 15px;
 }
 
-.bond-birthday {
-  margin-left: 0;
+.create-bond .cancel {
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+  border: none;
+  color: crimson;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.4);
 }
 
-.add-group-link {
-  font-size: .75em;
+.create-bond .button-container {
+  display: flex;
+  direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0 15px 34px;
 }

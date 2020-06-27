@@ -15,11 +15,11 @@
   padding: 5px
 }
 
-.view-bond-data p, .view-bond-data textarea {
+.view-bond p, .view-bond textarea {
   display: inline;
 }
 
-.view-bond-data textarea {
+.view-bond textarea {
   min-width: 250px;
   border: 1.5px solid #5e5e5e;
   border-radius: 3px;
@@ -36,11 +36,11 @@
   margin-top: 5px;
 }
 
-.view-bond-data i {
+.view-bond i {
   padding: 15px 10px;
 }
 
-.view-bond-data .fa-sticky-note {
+.view-bond .fa-sticky-note {
   padding-top: 8px;
 }
 
