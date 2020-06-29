@@ -50,18 +50,18 @@ function ViewInteraction(props) {
               value={description}>
             </textarea>
           </div>
+          <div className="links-container">
+            <Link to="/interactions/" className="return-button">
+              <i className="fas fa-arrow-left"></i>
+              RETURN
+            </Link>
+            <Link to={`/interactions/edit/${interactionIdAsNum}`} className="edit-button">
+              <i className="fas fa-pen"></i>
+              EDIT
+            </Link>
+          </div>
         </section>
       </main>
-      <div className='FAB-container'>
-        <CircleButton
-          tag={Link}
-          to={`/interactions/edit/${interactionIdAsNum}`}
-          type='button'
-          className='edit-interaction-button'
-        >
-          <i className="fas fa-pen"></i>
-        </CircleButton>
-      </div>
     </>
   )
 }

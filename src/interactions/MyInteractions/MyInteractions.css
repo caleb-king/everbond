@@ -1,3 +1,7 @@
 section {
   margin: auto;
 }
+
+.my-interactions .add-button{
+  width: 215px;
+}

@@ -23,49 +23,59 @@ function AddInteraction() {
           <h1>Log New Interaction</h1>
         </header>
         <section>
-          <form id="add-interaction">
+          <form id="add-interaction" className="add-interaction">
             <div className="form-section">
-              <label htmlFor="name">Name</label>
-              <input type="text" name="name" required />
+              <label htmlFor="interaction-name">Name</label>
+              <div className="add-interaction-field">
+                <i className="fas fa-user"></i>
+                <input className="bond-name" type="text" name="interaction-name" required />
+              </div>
             </div>
             <div className="form-section">
-              <label htmlFor="date">Date</label>
-              <input type="number" name="date-month" placeholder="Day" min="1" max="12" required />
-              <input type="number" name="date-day" className="date-day"  placeholder="Month" min="1" max="31" required />
-              <input type="number" name="date-year" className="date-year" placeholder="Year" required />
+              <label htmlFor="interaction-date">Date</label>
+              <div className="add-interaction-field">
+                <i className="fas fa-calendar"></i>
+                <input className="interaction-date" type="text" name="interaction-date" placeholder="MM/DD/YYYY"/>
+              </div>
             </div>
             <div className="form-section">
               <label htmlFor="medium">Medium</label>
-              <select name="medium" id="medium">
-                <option value="in-person">In Person</option>
-                <option value="video-call">Video Call</option>
-                <option value="phone-call">Phone Call</option>
-                <option value="text">Text</option>
-                <option value="email">Email</option>
-                <option value="letter">Letter</option>
-                <option value="other">Other</option>
-              </select>
+              <div className="add-interaction-field">
+              <i className="fas fa-arrows-alt-h"></i>
+                <select className="medium" name="medium" id="medium">
+                  <option value="in-person">In Person</option>
+                  <option value="video-call">Video Call</option>
+                  <option value="phone-call">Phone Call</option>
+                  <option value="text">Text</option>
+                  <option value="email">Email</option>
+                  <option value="letter">Letter</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
             </div>
             <div className="form-section">
               <label htmlFor="location">Location</label>
-              <input type="text" name="location" />
+              <div className="add-interaction-field">
+                <i className="fas fa-map-marker-alt"></i>
+                <input className="location" type="text" name="location"/>
+              </div>
             </div>
             <div className="form-section">
               <label htmlFor="description">Description</label>
-              <textarea 
-                name="description" 
-                rows="15" 
-                cols="100"
-                placeholder="Conversation highlights, activities, significant details...">
-              </textarea>
+              <div className="create-bond-field">
+                <i className="fas fa-sticky-note"></i>
+                <textarea name="description" rows="10" placeholder="Conversation highlights, activities, significant details..."></textarea>
+              </div>
             </div>
 
-            <button type="submit" onClick={handleSubmit}>
-              Submit
-            </button>
-            <button onClick={handleCancel}>
-              Cancel
-            </button>
+            <div className="button-container">
+              <button className="submit" type="submit" onClick={handleSubmit}>
+                SUBMIT
+              </button>
+              <button className="cancel" onClick={handleCancel}>
+                <i className="fas fa-times"></i>
+              </button>
+            </div>
           </form>
         </section>
       </main>

@@ -18,7 +18,11 @@ function MyInteractions(props) {
         <header role="banner">
           <h1>My Interactions</h1>
         </header>
-        <section>
+        <section className="my-interactions">
+          <Link to='/interactions/add' className="add-button">
+            <i className="fas fa-plus"></i>
+            ADD INTERACTION
+          </Link>
           <SearchAndSortForm 
             filterText={filterText}
             setFilterText={setFilterText}

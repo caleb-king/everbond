@@ -28,6 +28,7 @@
   font-family: "Open Sans", sans-serif;
   font-size: 0.8rem;
   color: #262626;
+  width: 100%;
 }
 
 .view-bond-notes {
@@ -44,6 +45,65 @@
   padding-top: 8px;
 }
 
+.links-container {
+  margin-left: 34px;
+  margin-top: 30px;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.return-button {
+  width: 135px;
+  display: flex;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  align-items: center;
+}
+
+.edit-button {
+  width: 105px;
+  background-color: #90BCB3;
+  border-radius: 17px;
+  display: flex;
+  font-weight: bold;
+  padding: 5px 20px;
+  margin-left: 15px;
+  text-align: center;
+  text-decoration: none;
+  align-items: center;
+  box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.edit-button:hover {
+  background-color: #A6C9C2;
+  color: #5e5e5e;
+}
+
+.return-button:hover {
+  color: #5e5e5e;
+}
+
+.view-bond .fa-pen, .view-bond .fa-arrow-left{
+  padding: 0 10px 0 0;
+}
+
+.view-bond .fa-arrow-left {
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
 .view-bond-birthday, .view-bond-notes {
   text-align: left;
+}
+
+.button-container {
+  margin-bottom: 60px;
+}
+
+@media (min-width: 500px) {
+  .links-container {
+    justify-content: flex-start;
+  }
 }

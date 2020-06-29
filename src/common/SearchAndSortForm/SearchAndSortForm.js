@@ -19,14 +19,17 @@ function SearchAndSortForm(props) {
 
   return (
     <form className="search-and-sort-form">
-      <i className="fas fa-search"></i>
-      <input placeholder="Search By Name..." className="search-field" value={filterText} onChange={handleSearchInputChange}/>
-      <br />
-      {renderSortIcon(sortOption)}
-      <select name="sort" id="sort" className="sort-field" value={sortOption} onChange={handleSortOptionChange}>
-        <option value="time">Sort by Time</option>
-        <option value="name">Sort by Name</option>
-      </select>
+      <div className="search-field-container">
+        <i className="fas fa-search"></i>
+        <input placeholder="Search By Name..." className="search-field" value={filterText} onChange={handleSearchInputChange}/>
+      </div>
+      <div className="search-field-container">
+        {renderSortIcon(sortOption)}
+        <select name="sort" id="sort" className="sort-field" value={sortOption} onChange={handleSortOptionChange}>
+          <option value="time">Sort by Time</option>
+          <option value="name">Sort by Name</option>
+        </select>
+      </div>
     </form>
   )
 }

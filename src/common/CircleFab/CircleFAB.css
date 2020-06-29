@@ -14,6 +14,8 @@
 
 .CircleFAB:hover {
   cursor: pointer;
+  background-color: #A6C9C2;
+  color: #5e5e5e;
 }
 
 .CircleFAB i {

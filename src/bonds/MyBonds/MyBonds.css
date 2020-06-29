@@ -3,3 +3,38 @@
   bottom: 50px;
   right: 15px;
 }
+
+.add-button {
+  display: none;
+}
+
+
+@media (min-width: 500px) {
+  .FAB-container {
+    display: none;
+  }
+
+  .add-button {
+    background-color: #90BCB3;
+    border-radius: 17px;
+    display: flex;
+    font-weight: bold;
+    padding: 5px 20px;
+    margin-top: 15px;
+    margin-bottom: 50px;
+    width: 160px;
+    text-align: center;
+    text-decoration: none;
+    align-items: center;
+    box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.4);
+  }
+
+  .add-button:hover {
+    background-color: #A6C9C2;
+    color: #5e5e5e;
+  }
+
+  .fa-plus{
+    padding-right: 10px;
+  }
+}

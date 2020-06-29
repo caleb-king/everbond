@@ -1,0 +1,104 @@
+.edit-interaction {
+  text-align: left;
+}
+
+.edit-interaction textarea{
+  min-width: 250px;
+  border: 1.5px solid #5e5e5e;
+  border-radius: 3px;
+  outline-color: #90BCB3;
+  background-color: #FFFFFF;
+  padding: 15px;
+  font-family: "Open Sans", sans-serif;
+  font-size: .9rem;
+  color: #262626;
+  width: 100%;
+}
+
+.edit-interaction input, .edit-interaction select {
+  width: 100%;
+  border: 1.5px solid #5e5e5e;
+  border-radius: 3px;
+  padding-left: 15px;
+  outline-color: #90BCB3;
+  font-size: .9rem;
+}
+
+.edit-interaction label {
+  margin-left: 50px;
+  font-weight: bold;
+}
+
+.edit-interaction-field {
+  display: flex;
+  flex-direction: row;
+}
+
+.edit-interaction .form-section {
+  margin-bottom: 15px;
+}
+
+.edit-interaction i {
+  padding: 15px 10px;
+}
+
+.edit-interaction .interaction-date, .edit-interaction select {
+  width: 125px;
+}
+
+.edit-interaction .bond-name, .edit-interaction .location {
+  width: 200px;
+}
+
+input[type="number"] {
+  width: 75px;
+}
+
+label {
+  display: block;
+}
+
+.edit-interaction .update {
+  background-color: #90BCB3;
+  width: 240px;
+  height: 60px;
+  border-radius: 30px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  border: none;
+  box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.4);
+  margin-right: 15px;
+}
+
+.edit-interaction .update:hover {
+  cursor: pointer;
+  background-color: #A6C9C2;
+  color: #5e5e5e;
+}
+
+.edit-interaction .cancel {
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+  border: none;
+  color: crimson;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.4);
+}
+
+.edit-interaction .cancel:hover {
+  cursor: pointer;
+  background-color: crimson;
+  color: #FFFFFF;
+}
+
+.edit-interaction .button-container {
+  display: flex;
+  direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0 60px 34px;
+}

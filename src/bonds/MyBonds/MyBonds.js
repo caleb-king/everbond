@@ -18,6 +18,10 @@ function MyBonds(props) {
           <h1>My Bonds</h1>
         </header>
         <section>
+          <Link to='/bonds/add' className="add-button">
+            <i className="fas fa-plus"></i>
+            ADD BOND
+          </Link>
           <SearchAndSortForm 
             filterText={filterText}
             setFilterText={setFilterText}
