@@ -7,7 +7,7 @@ export default function CircleFAB(props) {
   return React.createElement(
     props.tag,
     {
-      className: ['CircleFAB', props.className].join(' '),
+      className: ['circleFAB', props.className].join(' '),
       ...otherProps
     },
     props.children

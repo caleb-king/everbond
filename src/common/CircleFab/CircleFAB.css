@@ -1,4 +1,4 @@
-.CircleFAB {
+.circleFAB {
   background-color: #90BCB3;
   border-radius: 100%;
   display: flex;
@@ -12,12 +12,23 @@
   box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.4);
 }
 
-.CircleFAB:hover {
+.circleFAB:hover {
   cursor: pointer;
   background-color: #A6C9C2;
   color: #5e5e5e;
 }
 
-.CircleFAB i {
+.circleFAB:active {
+  background-color: #80B3A8;
+  box-shadow: 3px 3px 5px 5px rgba(0, 0, 0, 0.4);
+  outline: none;
+}
+
+.circleFAB:focus {
+  background-color: #80B3A8;
+  outline: none;
+}
+
+.circleFAB i {
   width: 100%;
 }
