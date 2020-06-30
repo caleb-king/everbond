@@ -76,6 +76,17 @@ label {
   color: #5e5e5e;
 }
 
+.edit-bond .update:active {
+  background-color: #80B3A8;
+  box-shadow: 3px 3px 5px 5px rgba(0, 0, 0, 0.4);
+  outline: none;
+}
+
+.edit-bond .update:focus {
+  background-color: #80B3A8;
+  outline: none;
+}
+
 .edit-bond .cancel {
   width: 45px;
   height: 45px;
@@ -93,6 +104,17 @@ label {
   cursor: pointer;
   background-color: crimson;
   color: #FFFFFF;
+}
+
+.edit-bond .cancel:focus {
+  background-color: crimson;
+  color: #FFFFFF;
+  outline: none
+}
+
+.edit-bond .cancel:active {
+  box-shadow: 3px 3px 5px 5px rgba(0, 0, 0, 0.4);
+  outline: none;
 }
 
 .edit-bond .button-container {

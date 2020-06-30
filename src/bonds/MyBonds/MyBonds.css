@@ -34,6 +34,17 @@
     color: #5e5e5e;
   }
 
+  .add-button:active {
+    background-color: #80B3A8;
+    box-shadow: 3px 3px 5px 5px rgba(0, 0, 0, 0.4);
+    outline: none;
+  }
+  
+  .add-button:focus {
+    background-color: #80B3A8;
+    outline: none;
+  }
+
   .fa-plus{
     padding-right: 10px;
   }

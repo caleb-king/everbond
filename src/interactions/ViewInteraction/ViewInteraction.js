@@ -1,6 +1,5 @@
 import React from 'react';
 import NavBar from '../../common/NavBar/NavBar';
-import CircleButton from '../../common/CircleFab/CircleFAB';
 import { Link, useParams } from 'react-router-dom';
 import './ViewInteraction.css';
 import { formatDateWithYear } from '../../helper';

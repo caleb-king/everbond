@@ -25,6 +25,14 @@ a {
   text-decoration: none;
 }
 
+a:focus {
+  outline: 2px solid gray;
+}
+
+a:active {
+  outline: none;
+}
+
 ul {
   list-style: none;
 }
