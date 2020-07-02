@@ -1,4 +1,4 @@
-export const formatTimeSince = (t) => {
+export const formatTimeSince = t => {
   //convert from days to more relatable time frame (weeks, months, etc)
   if(t === 0) return '0 days';
   if(t === 1) return '1 day';
@@ -10,7 +10,7 @@ export const formatTimeSince = (t) => {
   return '';
 }
 
-export const daysSince = (date) => {
+export const daysSince = date => {
   const pastDate = new Date(date);
   const today = new Date();
   const timeSince = Math.abs(today - pastDate);
@@ -48,24 +48,29 @@ const months = {
   11: 'December'
 }
 
-export const formatBirthday = (date) => {
+export const formatBirthday = date => {
   const d = new Date(date)
   const monthName = months[d.getMonth()];
   const day = d.getDate();
   return `${monthName} ${day}`;
 }
 
-export const formatDate = (date) => {
+export const formatDate = date => {
   const d = new Date(date)
   const monthName = monthsAbbr[d.getMonth()];
   const day = d.getDate() + 1;
   return `${monthName} ${day}`;
 }
 
-export const formatDateWithYear = (date) => {
+export const formatDateWithYear = date => {
   const d = new Date(date)
   const monthName = monthsAbbr[d.getMonth()];
   const day = d.getDate() + 1;
   const year = d.getFullYear();
   return `${monthName} ${day}, ${year}`;
+}
+
+export const getNameByBondId = (bondId, bonds) => {
+  const matchingBond = bonds.find(bond => bond.id === bondId);
+  return (!matchingBond) ? null : matchingBond.name;
 }

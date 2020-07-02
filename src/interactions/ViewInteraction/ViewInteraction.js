@@ -2,15 +2,17 @@ import React from 'react';
 import NavBar from '../../common/NavBar/NavBar';
 import { Link, useParams } from 'react-router-dom';
 import './ViewInteraction.css';
-import { formatDateWithYear } from '../../helper';
+import { formatDateWithYear, getNameByBondId } from '../../helper';
 
 function ViewInteraction(props) {
   const interactionIdAsString = useParams().interactionID;
   const interactionIdAsNum = parseInt(interactionIdAsString,10);
   const interactions = props.store.INTERACTIONS;
+  const bonds = props.store.BONDS;
 
   const interactionIndex = interactions.findIndex(interaction => interaction.id === interactionIdAsNum);
-  const { name, date, medium, location, description } = interactions[interactionIndex];
+  const { bondId, date, medium, location, description } = interactions[interactionIndex];
+  const name = getNameByBondId(bondId, bonds);
 
   const locationDiv = (
     <div className="view-interaction-datum">

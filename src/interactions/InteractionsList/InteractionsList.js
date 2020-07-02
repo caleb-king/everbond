@@ -1,20 +1,20 @@
 import React from 'react';
 import './InteractionsList.css';
 import Interaction from '../Interaction/Interaction';
-import { daysSince } from '../../helper';
+import { daysSince, getNameByBondId } from '../../helper';
 
 function InteractionsList(props) {
   const { interactions, bonds, filterText, sortOption } = props;
 
   function filterInteractions(interactions, filterText) {
-    return interactions.filter(interaction => interaction.name.toLowerCase().indexOf(filterText.toLowerCase()) !== -1);
+    return interactions.filter(interaction => getNameByBondId(interaction.bondId, bonds).toLowerCase().indexOf(filterText.toLowerCase()) !== -1);
   }
 
   function sortInteractions(interactions, sortOption) {
     if (sortOption === 'name') {
       interactions.sort((interaction1, interaction2) => {
-        const name1 = interaction1.name;
-        const name2 = interaction2.name;
+        const name1 = getNameByBondId(interaction1.bondId, bonds);
+        const name2 = getNameByBondId(interaction2.bondId, bonds);
         if (name1 < name2) return -1;
         if (name1 > name2) return 1;
         return 0;
@@ -41,20 +41,20 @@ function InteractionsList(props) {
   return (
     <ul className="interaction-list">
       {myInteractionsList.map(interaction => {
-      const { name, description, date, id } = interaction;
-      const bondIndex = bonds.findIndex(bond => bond.name === name);
-      const bondId = bonds[bondIndex].id;
-      
-      return (
-        <Interaction 
-          name={name}
-          description={description}
-          date={date} 
-          key={id}
-          interactionId={id}
-          bondId={bondId}/>
-      );
-    })}
+        const { bondId, description, date, id } = interaction;
+
+        const name = getNameByBondId(bondId, bonds);
+        
+        return (
+          <Interaction 
+            name={name}
+            description={description}
+            date={date} 
+            key={id}
+            interactionId={id}
+            bondId={bondId}/>
+        );
+      })}
     </ul>
     
     

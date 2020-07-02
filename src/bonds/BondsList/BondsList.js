@@ -1,7 +1,7 @@
 import React from 'react';
 import './BondsList.css';
 import Bond from '../Bond/Bond';
-import { daysSince } from '../../helper';
+import { daysSince, getNameByBondId } from '../../helper';
 
 function BondsList(props) {
   const { bonds, interactions, filterText, sortOption } = props;
@@ -12,7 +12,7 @@ function BondsList(props) {
 
   function addTimeSinceToBonds(bonds, interactions) {
     return bonds.map(bond => {
-      const lastInteraction = interactions.find(interaction => interaction.name === bond.name);
+      const lastInteraction = interactions.find(interaction => getNameByBondId(interaction.bondId, bonds) === bond.name);
       bond.timeSinceLastInteraction = daysSince(lastInteraction.date);
       return bond;
     })
@@ -44,6 +44,7 @@ function BondsList(props) {
     ? [...bonds]
     : filterBonds(bonds, filterText);
 
+  console.log('filterBondsList: ',filteredBondsList);
   const bondsWithTimeSince = addTimeSinceToBonds(filteredBondsList, interactions);
 
   const myBondsList = sortBonds(bondsWithTimeSince, sortOption);

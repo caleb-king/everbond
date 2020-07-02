@@ -22,7 +22,7 @@ const BONDS = [
 const INTERACTIONS = [
   {
     id: 7,
-    name: 'Mom',
+    bondId: 1,
     date: '2020-06-17',
     medium: 'Phone Call',
     location: '',
@@ -30,7 +30,7 @@ const INTERACTIONS = [
   },
   {
     id: 4,
-    name: 'Justin Wellum',
+    bondId: 2,
     date: '2020-05-26',
     medium: 'Video Call',
     location: '',
@@ -38,7 +38,7 @@ const INTERACTIONS = [
   },
   {
     id: 6,
-    name: 'Grandma',
+    bondId: 3,
     date: '2020-05-17',
     medium: 'Phone Call',
     location: '',
@@ -46,7 +46,7 @@ const INTERACTIONS = [
   },
   {
     id: 5,
-    name: 'Mom',
+    bondId: 1,
     date: '2020-05-07',
     medium: 'Phone Call',
     location: '',
@@ -54,7 +54,7 @@ const INTERACTIONS = [
   },
   {
     id: 3,
-    name: 'Grandma',
+    bondId: 3,
     date: '2020-04-28',
     medium: 'Phone Call',
     location: '',
@@ -62,7 +62,7 @@ const INTERACTIONS = [
   },
   {
     id: 2,
-    name: 'Mom',
+    bondId: 1,
     date: '2020-04-21',
     medium: 'Video Call',
     location: '',
@@ -70,7 +70,7 @@ const INTERACTIONS = [
   },
   {
     id: 1,
-    name: 'Justin Wellum',
+    bondId: 2,
     date: '2020-04-16',
     medium: 'In Person',
     location: 'Denver, CO',
