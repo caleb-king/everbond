@@ -46,7 +46,7 @@
   width: 125px;
 }
 
-.add-interaction .bond-name, .add-interaction .location {
+.add-interaction .interaction-name, .add-interaction .location {
   width: 200px;
 }
 

@@ -71,7 +71,45 @@ export const formatDateWithYear = date => {
   return `${monthName} ${day}, ${year}`;
 }
 
+export const formatWithYearFirstAndHyphens = date => {
+  const pad = n => n < 10 ? ('0' + n) : n;
+  const d = new Date(date);
+  const month = pad(d.getMonth() + 1);
+  const day = pad(d.getDate());
+  const year = d.getFullYear();
+  return `${year}-${month}-${day}`;
+}
+
+export const formatWithYearLastAndSlashes = date => {
+  const pad = n => n < 10 ? ('0' + n) : n;
+  const d = new Date(date);
+  const month = pad(d.getMonth() + 1);
+  const day = pad(d.getDate() + 1);
+  const year = d.getFullYear();
+  return `${month}/${day}/${year}`;
+}
+
 export const getNameByBondId = (bondId, bonds) => {
   const matchingBond = bonds.find(bond => bond.id === bondId);
   return (!matchingBond) ? null : matchingBond.name;
+}
+
+export const findMediumMatch = (medium) => {
+  const mediumMatchingTable = {
+    'In Person' : 'in-person',
+    'Video Call' : 'video-call',
+    'Phone Call' : 'phone-call',
+    'Text' : 'text',
+    'Email' : 'email',
+    'Letter' : 'letter',
+    'Other' : 'other',
+    'in-person' : 'In Person',
+    'video-call' : 'Video Call',
+    'phone-call' : 'Phone Call',
+    'text' : 'Text',
+    'email' : 'Email',
+    'letter' : 'Letter',
+    'other' : 'Other',
+  }
+  return mediumMatchingTable[medium];
 }

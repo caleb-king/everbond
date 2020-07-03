@@ -47,8 +47,7 @@ function App(props) {
   }
 
   function handleAddInteraction(newInteraction) {
-    console.log('handleAddInteraction ran');
-    console.log('newInteraction: ',newInteraction)
+    setInteractions(interactions => [...interactions, newInteraction]);
   }
 
   function handleUpdateBond(updatedBond, id) {
@@ -60,8 +59,12 @@ function App(props) {
   }
 
   function handleUpdateInteraction(updatedInteraction, id) {
-    console.log('handleUpdateInteraction');
-    console.log('updatedInteraction:',updatedInteraction,'id: ',id)
+    updatedInteraction.bondId = parseInt(updatedInteraction.bondId, 10);
+    const updatedInteractionWithId = { id, ...updatedInteraction};
+    const updatedInteractionsArray = interactions.map(interaction => {
+      return interaction.id === id ? updatedInteractionWithId : interaction;
+    });
+    setInteractions(updatedInteractionsArray);
   }
 
 
@@ -98,7 +101,7 @@ function App(props) {
         <Route path="/interactions/add/" render={() => (
           <AddInteraction 
             bonds={bonds} 
-            AddInteraction={handleAddInteraction}
+            addInteraction={handleAddInteraction}
           />
         )} />
         <Route path="/interactions/view/:interactionID" render={() => (

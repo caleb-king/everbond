@@ -2,13 +2,42 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import './AddInteraction.css';
 import NavBar from '../../common/NavBar/NavBar';
+import config from '../../config';
+import { findMediumMatch, formatWithYearFirstAndHyphens } from '../../helper';
 
 function AddInteraction(props) {
   let history = useHistory();
 
   function handleSubmit(e) {
-    e.preventDefault()
-    history.push('/interactions');
+    e.preventDefault();
+    const medium = findMediumMatch(e.target['medium'].value);
+    const date = formatWithYearFirstAndHyphens(e.target['interaction-date'].value);
+    const newInteraction = {
+      bondId: e.target['interaction-name'].value,
+      date: date,
+      medium: medium,
+      location: e.target['location'].value,
+      description: e.target['description'].value,
+    }
+    fetch(`${config.API_ENDPOINT}/interactions`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(newInteraction),
+    })
+      .then(res => {
+        if (!res.ok)
+          return res.json().then(e => Promise.reject(e))
+        return res.json()
+      })
+      .then(interaction => {
+        props.addInteraction(interaction);
+        history.push('/interactions');
+      })
+      .catch(error => {
+        console.error({ error })
+      })
   }
 
   function handleCancel(e) {
@@ -24,12 +53,12 @@ function AddInteraction(props) {
           <h1>Log New Interaction</h1>
         </header>
         <section>
-          <form id="add-interaction" className="add-interaction">
+          <form id="add-interaction" className="add-interaction"  onSubmit={handleSubmit}>
             <div className="form-section">
               <label htmlFor="interaction-name">Name</label>
               <div className="add-interaction-field">
                 <i className="fas fa-user"></i>
-                <input className="bond-name" type="text" name="interaction-name" required />
+                <input className="interaction-name" type="text" name="interaction-name" required />
               </div>
             </div>
             <div className="form-section">
@@ -70,7 +99,7 @@ function AddInteraction(props) {
             </div>
 
             <div className="button-container">
-              <button className="submit" type="submit" onClick={handleSubmit}>
+              <button className="submit" type="submit">
                 SUBMIT
               </button>
               <button className="cancel" onClick={handleCancel}>

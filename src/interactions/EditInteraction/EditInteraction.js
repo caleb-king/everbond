@@ -2,7 +2,13 @@ import React from 'react';
 import './EditInteraction.css';
 import NavBar from '../../common/NavBar/NavBar';
 import { useParams, useHistory } from 'react-router-dom';
-import { getNameByBondId } from '../../helper';
+import config from '../../config';
+import { 
+  getNameByBondId, 
+  findMediumMatch, 
+  formatWithYearFirstAndHyphens, 
+  formatWithYearLastAndSlashes 
+} from '../../helper';
 
 function EditInteraction(props) {
   const interactionIdAsString = useParams().interactionID;
@@ -14,25 +20,37 @@ function EditInteraction(props) {
   const { bondId, date, medium, location, description } = interactions[interactionIndex];
   const name = getNameByBondId(bondId, bonds);
 
-
-  function findMediumMatch(medium) {
-    const mediumMatchingTable = {
-      'In Person' : 'in-person',
-      'Video Call' : 'video-call',
-      'Phone Call' : 'phone-call',
-      'Text' : 'text',
-      'Email' : 'email',
-      'Letter' : 'letter',
-      'Other' : 'other',
-    }
-    return mediumMatchingTable[medium];
-  }
-
   let history = useHistory();
 
   function handleUpdate(e) {
-    e.preventDefault()
-    history.push(`/interactions/view/${interactionIdAsNum}`);
+    e.preventDefault();
+    const medium = findMediumMatch(e.target['medium'].value);
+    const date = formatWithYearFirstAndHyphens(e.target['interaction-date'].value);
+    const newInteraction = {
+      bondId: e.target['interaction-name'].value,
+      date: date,
+      medium: medium,
+      location: e.target['location'].value,
+      description: e.target['description'].value,
+    }
+    fetch(`${config.API_ENDPOINT}/interactions/${interactionIdAsNum}`, {
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(newInteraction),
+    })
+      .then(res => {
+        if (!res.ok)
+          return res.json().then(e => Promise.reject(e))
+      })
+      .then(() => {
+        props.updateInteraction(newInteraction, interactionIdAsNum);
+        history.push(`/interactions/view/${interactionIdAsNum}`);
+      })
+      .catch(error => {
+        console.error({ error })
+      })
   }
 
   function handleCancel(e) {
@@ -48,7 +66,7 @@ function EditInteraction(props) {
           <h1>Edit Interaction</h1>
         </header>
         <section>
-          <form id="edit-interaction" className="edit-interaction">
+          <form id="edit-interaction" className="edit-interaction" onSubmit={handleUpdate}>
             <div className="form-section">
               <label htmlFor="interaction-name">Name</label>
               <div className="add-interaction-field">
@@ -58,7 +76,7 @@ function EditInteraction(props) {
                   type="text" 
                   name="interaction-name" 
                   required 
-                  defaultValue={name}/>
+                  defaultValue={bondId}/>
               </div>
             </div>
             <div className="form-section">
@@ -70,7 +88,7 @@ function EditInteraction(props) {
                   type="text" 
                   name="interaction-date" 
                   placeholder="MM/DD/YYYY"
-                  defaultValue={date}/>
+                  defaultValue={formatWithYearLastAndSlashes(date)}/>
               </div>
             </div>
             <div className="form-section">
@@ -118,7 +136,7 @@ function EditInteraction(props) {
             </div>
 
             <div className="button-container">
-              <button className="update" type="submit" onClick={handleUpdate}>
+              <button className="update" type="submit">
                 UPDATE
               </button>
               <button className="cancel" onClick={handleCancel}>
