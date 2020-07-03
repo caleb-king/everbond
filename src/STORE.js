@@ -1,4 +1,4 @@
-const BONDS = [
+const bonds = [
   {
     id: 1,
     name: 'Mom',
@@ -19,7 +19,7 @@ const BONDS = [
   }
 ];
 
-const INTERACTIONS = [
+const interactions = [
   {
     id: 7,
     bondId: 1,
@@ -79,6 +79,6 @@ const INTERACTIONS = [
 ];
 
 export default {
-  BONDS,
-  INTERACTIONS
+  bonds,
+  interactions
 };

@@ -7,9 +7,10 @@ import { getNameByBondId } from '../../helper';
 function EditInteraction(props) {
   const interactionIdAsString = useParams().interactionID;
   const interactionIdAsNum = parseInt(interactionIdAsString,10);
-  const interactions = props.store.INTERACTIONS;
-  const bonds = props.store.BONDS;
+  const interactions = props.interactions;
+  const bonds = props.bonds;
 
+  console.log('interactions: ',interactions, 'interactionIdAsNum: ',interactionIdAsNum)
   const interactionIndex = interactions.findIndex(interaction => interaction.id === interactionIdAsNum);
   const { bondId, date, medium, location, description } = interactions[interactionIndex];
   const name = getNameByBondId(bondId, bonds);

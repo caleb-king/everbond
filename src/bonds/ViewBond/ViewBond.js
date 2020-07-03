@@ -7,7 +7,7 @@ import { formatBirthday } from '../../helper';
 function ViewBond(props) {
   const bondIdAsString = useParams().bondID;
   const bondIdAsNum = parseInt(bondIdAsString,10);
-  const bonds = props.store.BONDS;
+  const bonds = props.bonds;
   
   const bondIndex = bonds.findIndex(bond => bond.id === bondIdAsNum);
   const { name, birthday, notes } = bonds[bondIndex];

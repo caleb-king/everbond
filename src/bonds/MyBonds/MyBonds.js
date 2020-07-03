@@ -28,8 +28,8 @@ function MyBonds(props) {
             sortOption={sortOption}
             setSortOption={setSortOption}/>
           <BondList 
-            bonds={props.store.BONDS}
-            interactions={props.store.INTERACTIONS}
+            bonds={props.bonds}
+            interactions={props.interactions}
             filterText={filterText}
             sortOption={sortOption}/>
         </section>

@@ -13,7 +13,7 @@ function BondsList(props) {
   function addTimeSinceToBonds(bonds, interactions) {
     return bonds.map(bond => {
       const lastInteraction = interactions.find(interaction => getNameByBondId(interaction.bondId, bonds) === bond.name);
-      bond.timeSinceLastInteraction = daysSince(lastInteraction.date);
+      bond.timeSinceLastInteraction = !lastInteraction ? null : daysSince(lastInteraction.date);
       return bond;
     })
   }
@@ -44,7 +44,6 @@ function BondsList(props) {
     ? [...bonds]
     : filterBonds(bonds, filterText);
 
-  console.log('filterBondsList: ',filteredBondsList);
   const bondsWithTimeSince = addTimeSinceToBonds(filteredBondsList, interactions);
 
   const myBondsList = sortBonds(bondsWithTimeSince, sortOption);

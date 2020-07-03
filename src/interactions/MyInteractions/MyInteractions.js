@@ -29,8 +29,8 @@ function MyInteractions(props) {
             sortOption={sortOption}
             setSortOption={setSortOption}/>
           <InteractionsList 
-            interactions={props.store.INTERACTIONS}
-            bonds={props.store.BONDS}
+            interactions={props.interactions}
+            bonds={props.bonds}
             filterText={filterText}
             sortOption={sortOption}/>
         </section>

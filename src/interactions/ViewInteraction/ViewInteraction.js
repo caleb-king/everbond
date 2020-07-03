@@ -7,8 +7,8 @@ import { formatDateWithYear, getNameByBondId } from '../../helper';
 function ViewInteraction(props) {
   const interactionIdAsString = useParams().interactionID;
   const interactionIdAsNum = parseInt(interactionIdAsString,10);
-  const interactions = props.store.INTERACTIONS;
-  const bonds = props.store.BONDS;
+  const interactions = props.interactions;
+  const bonds = props.bonds;
 
   const interactionIndex = interactions.findIndex(interaction => interaction.id === interactionIdAsNum);
   const { bondId, date, medium, location, description } = interactions[interactionIndex];

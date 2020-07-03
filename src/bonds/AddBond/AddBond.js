@@ -4,11 +4,11 @@ import './AddBond.css';
 import NavBar from '../../common/NavBar/NavBar';
 
 
-function AddBond() {
+function AddBond(props) {
   let history = useHistory();
 
   function handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
     history.push('/bonds');
   }
 
