@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import './EditBond.css';
 import NavBar from '../../common/NavBar/NavBar';
+import config from '../../config';
 
 function EditBond(props) {
   const bondIdAsString = useParams().bondID;
@@ -15,10 +16,34 @@ function EditBond(props) {
 
   function handleUpdate(e) {
     e.preventDefault()
-    history.push(`/bonds/view/${bondIdAsNum}`);
+    const updatedBond = {
+      name: e.target['bond-name'].value,
+      birthday: e.target['bond-birthday'].value,
+      notes: e.target['bond-notes'].value,
+    }
+
+    fetch(`${config.API_ENDPOINT}/bonds/${bondIdAsNum}`, {
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(updatedBond),
+    })
+      .then(res => {
+        if (!res.ok)
+          return res.json().then(e => Promise.reject(e))
+      })
+      .then(() => {
+        props.updateBond(updatedBond, bondIdAsNum);
+        history.push(`/bonds/view/${bondIdAsNum}`);
+      })
+      .catch(error => {
+        console.error({ error })
+      })
   }
 
-  function handleCancel() {
+  function handleCancel(e) {
+    e.preventDefault();
     history.push(`/bonds/view/${bondIdAsNum}`);
   }
 
@@ -30,7 +55,7 @@ function EditBond(props) {
           <h1>Edit Bond</h1>
         </header>
         <section>
-          <form id="edit-bond" className="edit-bond">
+          <form id="edit-bond" className="edit-bond" onSubmit={handleUpdate}>
             <div className="form-section">
               <label htmlFor="bond-name">Name</label>
               <div className="edit-bond-field">
@@ -69,7 +94,7 @@ function EditBond(props) {
             </div>
 
             <div className="button-container">
-              <button className="update" type="submit" onClick={handleUpdate}>
+              <button className="update" type="submit">
                 UPDATE
               </button>
               <button className="cancel" onClick={handleCancel}>

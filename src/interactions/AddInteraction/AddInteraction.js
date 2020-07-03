@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import './AddInteraction.css';
 import NavBar from '../../common/NavBar/NavBar';
 
-function AddInteraction() {
+function AddInteraction(props) {
   let history = useHistory();
 
   function handleSubmit(e) {
@@ -11,7 +11,8 @@ function AddInteraction() {
     history.push('/interactions');
   }
 
-  function handleCancel() {
+  function handleCancel(e) {
+    e.preventDefault();
     history.push('/interactions');
   }
 

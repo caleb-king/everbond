@@ -31,6 +31,7 @@ function BondsList(props) {
       bonds.sort((bond1, bond2) => {
         const timeSince1 = bond1.timeSinceLastInteraction;
         const timeSince2 = bond2.timeSinceLastInteraction;
+        if (timeSince1 === null) return 1;
         if (timeSince1 < timeSince2) return -1;
         if (timeSince1 > timeSince2) return 1;
         return 0;

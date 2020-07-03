@@ -43,8 +43,7 @@ function App(props) {
   }, [])
 
   function handleAddBond(newBond) {
-    console.log('handleAddBond ran');
-    console.log('newBond: ',newBond);
+    setBonds(bonds => [...bonds, newBond]);
   }
 
   function handleAddInteraction(newInteraction) {
@@ -53,8 +52,11 @@ function App(props) {
   }
 
   function handleUpdateBond(updatedBond, id) {
-    console.log('handleUpdateBond ran');
-    console.log('updatedBond:',updatedBond,'id: ',id)
+    const updatedBondWithId = { id, ...updatedBond};
+    const updatedBondsArray = bonds.map(bond => {
+      return bond.id === id ? updatedBondWithId : bond;
+    });
+    setBonds(updatedBondsArray);
   }
 
   function handleUpdateInteraction(updatedInteraction, id) {

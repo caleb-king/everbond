@@ -10,7 +10,6 @@ function EditInteraction(props) {
   const interactions = props.interactions;
   const bonds = props.bonds;
 
-  console.log('interactions: ',interactions, 'interactionIdAsNum: ',interactionIdAsNum)
   const interactionIndex = interactions.findIndex(interaction => interaction.id === interactionIdAsNum);
   const { bondId, date, medium, location, description } = interactions[interactionIndex];
   const name = getNameByBondId(bondId, bonds);
@@ -36,7 +35,8 @@ function EditInteraction(props) {
     history.push(`/interactions/view/${interactionIdAsNum}`);
   }
 
-  function handleCancel() {
+  function handleCancel(e) {
+    e.preventDefault();
     history.push(`/interactions/view/${interactionIdAsNum}`);
   }
   

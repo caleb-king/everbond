@@ -1,5 +1,6 @@
 export const formatTimeSince = t => {
   //convert from days to more relatable time frame (weeks, months, etc)
+  if(t === null) return '';
   if(t === 0) return '0 days';
   if(t === 1) return '1 day';
   if(t < 14) return `${t} days`;

@@ -2,6 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import './AddBond.css';
 import NavBar from '../../common/NavBar/NavBar';
+import config from '../../config';
 
 
 function AddBond(props) {
@@ -9,10 +10,35 @@ function AddBond(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    history.push('/bonds');
+    const newBond = {
+      name: e.target['bond-name'].value,
+      birthday: e.target['bond-birthday'].value,
+      notes: e.target['bond-notes'].value,
+    }
+    fetch(`${config.API_ENDPOINT}/bonds`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(newBond),
+    })
+      .then(res => {
+        if (!res.ok)
+          return res.json().then(e => Promise.reject(e))
+        return res.json()
+      })
+      .then(bond => {
+        props.addBond(bond);
+        history.push('/bonds');
+      })
+      .catch(error => {
+        console.error({ error })
+      })
+    
   }
 
-  function handleCancel() {
+  function handleCancel(e) {
+    e.preventDefault();
     history.push('/bonds');
   }
 
@@ -24,7 +50,7 @@ function AddBond(props) {
           <h1>Create New Bond</h1>
         </header>
         <section>
-          <form id="create-bond" className="create-bond">
+          <form id="create-bond" className="create-bond" onSubmit={handleSubmit}>
             <div className="form-section">
               <label htmlFor="bond-name">Name</label>
               <div className="create-bond-field">
@@ -48,7 +74,7 @@ function AddBond(props) {
             </div>
 
             <div className="button-container">
-              <button className="create" type="submit" onClick={handleSubmit}>
+              <button className="create" type="submit">
                 CREATE
               </button>
               <button className="cancel" onClick={handleCancel}>
