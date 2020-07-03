@@ -58,15 +58,17 @@ export const formatBirthday = date => {
 
 export const formatDate = date => {
   const d = new Date(date)
+  d.setDate(d.getDate() + 1);
   const monthName = monthsAbbr[d.getMonth()];
-  const day = d.getDate() + 1;
+  const day = d.getDate();
   return `${monthName} ${day}`;
 }
 
 export const formatDateWithYear = date => {
   const d = new Date(date)
+  d.setDate(d.getDate() + 1);
   const monthName = monthsAbbr[d.getMonth()];
-  const day = d.getDate() + 1;
+  const day = d.getDate();
   const year = d.getFullYear();
   return `${monthName} ${day}, ${year}`;
 }
@@ -83,8 +85,9 @@ export const formatWithYearFirstAndHyphens = date => {
 export const formatWithYearLastAndSlashes = date => {
   const pad = n => n < 10 ? ('0' + n) : n;
   const d = new Date(date);
+  d.setDate(d.getDate() + 1);
   const month = pad(d.getMonth() + 1);
-  const day = pad(d.getDate() + 1);
+  const day = pad(d.getDate());
   const year = d.getFullYear();
   return `${month}/${day}/${year}`;
 }
@@ -92,6 +95,11 @@ export const formatWithYearLastAndSlashes = date => {
 export const getNameByBondId = (bondId, bonds) => {
   const matchingBond = bonds.find(bond => bond.id === bondId);
   return (!matchingBond) ? null : matchingBond.name;
+}
+
+export const getBondIdByName = (name, bonds) => {
+  const matchingBond = bonds.find(bond => bond.name === name);
+  return (!matchingBond) ? null : matchingBond.id;
 }
 
 export const findMediumMatch = (medium) => {

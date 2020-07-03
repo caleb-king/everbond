@@ -3,7 +3,8 @@ import { useHistory } from 'react-router-dom';
 import './AddInteraction.css';
 import NavBar from '../../common/NavBar/NavBar';
 import config from '../../config';
-import { findMediumMatch, formatWithYearFirstAndHyphens } from '../../helper';
+import { findMediumMatch, formatWithYearFirstAndHyphens, getBondIdByName } from '../../helper';
+
 
 function AddInteraction(props) {
   let history = useHistory();
@@ -12,8 +13,9 @@ function AddInteraction(props) {
     e.preventDefault();
     const medium = findMediumMatch(e.target['medium'].value);
     const date = formatWithYearFirstAndHyphens(e.target['interaction-date'].value);
+    const bondId = getBondIdByName(e.target['interaction-name'].value, props.bonds);
     const newInteraction = {
-      bondId: e.target['interaction-name'].value,
+      bondId: bondId,
       date: date,
       medium: medium,
       location: e.target['location'].value,
@@ -45,6 +47,12 @@ function AddInteraction(props) {
     history.push('/interactions');
   }
 
+  function renderBondNames() {
+    return props.bonds.map(bond => (
+      <option value={bond.name}/>
+    ))
+  }
+
   return (
     <>
       <NavBar />
@@ -58,7 +66,10 @@ function AddInteraction(props) {
               <label htmlFor="interaction-name">Name</label>
               <div className="add-interaction-field">
                 <i className="fas fa-user"></i>
-                <input className="interaction-name" type="text" name="interaction-name" required />
+                <input className="interaction-name" type="text" name="interaction-name" list="bond-names" required />
+                <datalist id="bond-names">
+                  {renderBondNames()}
+                </datalist>
               </div>
             </div>
             <div className="form-section">

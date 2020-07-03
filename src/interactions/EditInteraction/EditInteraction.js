@@ -5,6 +5,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import config from '../../config';
 import { 
   getNameByBondId, 
+  getBondIdByName,
   findMediumMatch, 
   formatWithYearFirstAndHyphens, 
   formatWithYearLastAndSlashes 
@@ -26,8 +27,9 @@ function EditInteraction(props) {
     e.preventDefault();
     const medium = findMediumMatch(e.target['medium'].value);
     const date = formatWithYearFirstAndHyphens(e.target['interaction-date'].value);
+    const bondId = getBondIdByName(e.target['interaction-name'].value, props.bonds);
     const newInteraction = {
-      bondId: e.target['interaction-name'].value,
+      bondId: bondId,
       date: date,
       medium: medium,
       location: e.target['location'].value,
@@ -57,6 +59,12 @@ function EditInteraction(props) {
     e.preventDefault();
     history.push(`/interactions/view/${interactionIdAsNum}`);
   }
+
+  function renderBondNames() {
+    return props.bonds.map(bond => (
+      <option value={bond.name}/>
+    ))
+  }
   
   return (
     <>
@@ -75,8 +83,12 @@ function EditInteraction(props) {
                   className="bond-name" 
                   type="text" 
                   name="interaction-name" 
+                  list="bond-names"
                   required 
-                  defaultValue={bondId}/>
+                  defaultValue={name}/>
+                <datalist id="bond-names">
+                  {renderBondNames()}
+                </datalist>
               </div>
             </div>
             <div className="form-section">

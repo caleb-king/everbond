@@ -31,7 +31,7 @@ li:last-child .interaction-content-container{
   width: 100%;
 }
 
-.interaction-name {
+.interaction .interaction-name {
   font-size: 1.3rem;
   font-weight: bold;
 }
