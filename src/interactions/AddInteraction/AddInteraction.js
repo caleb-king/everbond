@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import './AddInteraction.css';
 import NavBar from '../../common/NavBar/NavBar';
 import config from '../../config';
@@ -7,13 +9,28 @@ import { findMediumMatch, formatWithYearFirstAndHyphens, getBondIdByName } from 
 
 
 function AddInteraction(props) {
+  const [interactionDate, setInteractionDate] = useState(new Date());
+  const [bondDateIsInvalid, setBondDateIsInvalid] = useState(false);
   let history = useHistory();
 
+  function handleDateChange(date) {
+    setInteractionDate(date);
+  }
+  
   function handleSubmit(e) {
     e.preventDefault();
     const medium = findMediumMatch(e.target['medium'].value);
-    const date = formatWithYearFirstAndHyphens(e.target['interaction-date'].value);
+    const date = formatWithYearFirstAndHyphens(interactionDate);
     const bondId = getBondIdByName(e.target['interaction-name'].value, props.bonds);
+    
+    if (!bondId) {
+      setBondDateIsInvalid(true);
+      alert("Please supply a valid Bond Name.");
+      return;
+    } else {
+      setBondDateIsInvalid(false);
+    }
+    
     const newInteraction = {
       bondId: bondId,
       date: date,
@@ -48,9 +65,20 @@ function AddInteraction(props) {
   }
 
   function renderBondNames() {
-    return props.bonds.map(bond => (
-      <option value={bond.name}/>
+    return props.bonds.map((bond, i) => (
+      <option value={bond.name} key={i}/>
     ))
+  }
+
+  function handleNameChange(e) {
+    const bondId = getBondIdByName(e.target.value, props.bonds);
+
+    if (!bondId) {
+      setBondDateIsInvalid(true);
+      return;
+    } else {
+      setBondDateIsInvalid(false);
+    }
   }
 
   return (
@@ -66,7 +94,13 @@ function AddInteraction(props) {
               <label htmlFor="interaction-name">Name</label>
               <div className="add-interaction-field">
                 <i className="fas fa-user"></i>
-                <input className="interaction-name" type="text" name="interaction-name" list="bond-names" required />
+                <input 
+                  className={bondDateIsInvalid ? 'interaction-name invalid-bond-name' : 'interaction-name'}
+                  type="text" 
+                  name="interaction-name" 
+                  list="bond-names" 
+                  required 
+                  onBlur={handleNameChange}/>
                 <datalist id="bond-names">
                   {renderBondNames()}
                 </datalist>
@@ -76,7 +110,12 @@ function AddInteraction(props) {
               <label htmlFor="interaction-date">Date</label>
               <div className="add-interaction-field">
                 <i className="fas fa-calendar"></i>
-                <input className="interaction-date" type="text" name="interaction-date" placeholder="MM/DD/YYYY"/>
+                <DatePicker
+                  selected={interactionDate}
+                  onChange={handleDateChange}
+                  maxDate={new Date()}
+                  className="interaction-date"
+                />
               </div>
             </div>
             <div className="form-section">

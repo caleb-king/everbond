@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './EditInteraction.css';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import NavBar from '../../common/NavBar/NavBar';
 import { useParams, useHistory } from 'react-router-dom';
 import config from '../../config';
@@ -7,11 +9,11 @@ import {
   getNameByBondId, 
   getBondIdByName,
   findMediumMatch, 
-  formatWithYearFirstAndHyphens, 
-  formatWithYearLastAndSlashes 
+  formatWithYearFirstAndHyphens
 } from '../../helper';
 
 function EditInteraction(props) {
+
   const interactionIdAsString = useParams().interactionID;
   const interactionIdAsNum = parseInt(interactionIdAsString,10);
   const interactions = props.interactions;
@@ -20,14 +22,31 @@ function EditInteraction(props) {
   const interactionIndex = interactions.findIndex(interaction => interaction.id === interactionIdAsNum);
   const { bondId, date, medium, location, description } = interactions[interactionIndex];
   const name = getNameByBondId(bondId, bonds);
+  let adjustedDate = new Date(date);
+  adjustedDate.setDate(adjustedDate.getDate() + 1);
 
+  const [interactionDate, setInteractionDate] = useState(new Date(adjustedDate));
+  const [bondDateIsInvalid, setBondDateIsInvalid] = useState(false);
   let history = useHistory();
+  
+  function handleDateChange(interactionDate) {
+    setInteractionDate(interactionDate);
+  }
 
   function handleUpdate(e) {
     e.preventDefault();
     const medium = findMediumMatch(e.target['medium'].value);
-    const date = formatWithYearFirstAndHyphens(e.target['interaction-date'].value);
+    const date = formatWithYearFirstAndHyphens(interactionDate);
     const bondId = getBondIdByName(e.target['interaction-name'].value, props.bonds);
+    
+    if (!bondId) {
+      setBondDateIsInvalid(true);
+      alert("Please supply a valid Bond Name.");
+      return;
+    } else {
+      setBondDateIsInvalid(false);
+    }
+    
     const newInteraction = {
       bondId: bondId,
       date: date,
@@ -61,9 +80,20 @@ function EditInteraction(props) {
   }
 
   function renderBondNames() {
-    return props.bonds.map(bond => (
-      <option value={bond.name}/>
+    return props.bonds.map((bond, i) => (
+      <option value={bond.name} key={i}/>
     ))
+  }
+
+  function handleNameChange(e) {
+    const bondId = getBondIdByName(e.target.value, props.bonds);
+
+    if (!bondId) {
+      setBondDateIsInvalid(true);
+      return;
+    } else {
+      setBondDateIsInvalid(false);
+    }
   }
   
   return (
@@ -80,12 +110,13 @@ function EditInteraction(props) {
               <div className="add-interaction-field">
                 <i className="fas fa-user"></i>
                 <input 
-                  className="bond-name" 
+                  className={bondDateIsInvalid ? 'interaction-name invalid-bond-name' : 'interaction-name'}
                   type="text" 
                   name="interaction-name" 
                   list="bond-names"
                   required 
-                  defaultValue={name}/>
+                  defaultValue={name}
+                  onBlur={handleNameChange}/>
                 <datalist id="bond-names">
                   {renderBondNames()}
                 </datalist>
@@ -95,12 +126,12 @@ function EditInteraction(props) {
               <label htmlFor="interaction-date">Date</label>
               <div className="add-interaction-field">
                 <i className="fas fa-calendar"></i>
-                <input 
-                  className="interaction-date" 
-                  type="text" 
-                  name="interaction-date" 
-                  placeholder="MM/DD/YYYY"
-                  defaultValue={formatWithYearLastAndSlashes(date)}/>
+                <DatePicker
+                  selected={interactionDate}
+                  onChange={handleDateChange}
+                  maxDate={new Date()}
+                  className="interaction-date"
+                />
               </div>
             </div>
             <div className="form-section">

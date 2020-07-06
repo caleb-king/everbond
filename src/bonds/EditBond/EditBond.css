@@ -46,6 +46,10 @@
   width: 100px;
 }
 
+.edit-bond .invalid-birthday {
+  outline: crimson solid 2px;
+}
+
 .edit-bond .bond-name {
   width: 200px;
 }

@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import moment from 'moment';
 import './AddBond.css';
 import NavBar from '../../common/NavBar/NavBar';
 import config from '../../config';
 
 
 function AddBond(props) {
+  const [birthdayIsInvalid, setBirthdayIsInvalid] = useState(false);
   let history = useHistory();
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    if (birthdayIsInvalid) {
+      alert("Please supply a valid birthday (MM/DD) or leave this field blank.");
+      return;
+    }
+
     const newBond = {
       name: e.target['bond-name'].value,
       birthday: e.target['bond-birthday'].value,
@@ -42,6 +50,17 @@ function AddBond(props) {
     history.push('/bonds');
   }
 
+  function handleBirthdayChange(e) {
+    const birthdayIsBlank = e.target.value === '';
+    const dateIsValid = moment(e.target.value, "MM/DD", true).isValid();
+
+    if (dateIsValid || birthdayIsBlank ) {
+      setBirthdayIsInvalid(false);
+    } else {
+      setBirthdayIsInvalid(true);
+    }
+  }
+
   return (
     <>
       <NavBar />
@@ -62,7 +81,12 @@ function AddBond(props) {
               <label htmlFor="bond-birthday">Birthday</label>
               <div className="create-bond-field">
                 <i className="fas fa-birthday-cake"></i>
-                <input className="bond-birthday" type="text" name="bond-birthday" placeholder="MM/DD"/>
+                <input 
+                  className={birthdayIsInvalid ? 'bond-birthday invalid-birthday' : 'bond-birthday'}
+                  type="text" 
+                  name="bond-birthday" 
+                  placeholder="MM/DD"
+                  onBlur={handleBirthdayChange}/>
               </div>
             </div>
             <div className="form-section">

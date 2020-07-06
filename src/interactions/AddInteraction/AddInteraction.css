@@ -42,12 +42,21 @@
   padding: 15px 10px;
 }
 
+.add-interaction .interaction-date {
+  height: 46px;
+  color: black;
+}
+
 .add-interaction .interaction-date, .add-interaction select {
   width: 125px;
 }
 
 .add-interaction .interaction-name, .add-interaction .location {
   width: 200px;
+}
+
+.add-interaction .invalid-bond-name {
+  outline: crimson solid 2px;
 }
 
 input[type="number"] {
@@ -123,4 +132,87 @@ label {
   justify-content: center;
   align-items: center;
   margin: 30px 0 60px 34px;
+}
+
+
+/* Overriding styles for date picker */
+
+.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item--selected {
+  background-color: #90BCB3;
+}
+
+.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item--selected:hover {
+  background-color: #90BCB3;
+}
+
+.react-datepicker__month--selected, .react-datepicker__month--in-selecting-range, .react-datepicker__month--in-range,
+.react-datepicker__quarter--selected,
+.react-datepicker__quarter--in-selecting-range,
+.react-datepicker__quarter--in-range,
+.react-datepicker__year-container-text--selected,
+.react-datepicker__year-container-text--in-selecting-range,
+.react-datepicker__year-container-text--in-range {
+  background-color: #90BCB3;
+}
+
+.react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range,
+.react-datepicker__month-text--selected,
+.react-datepicker__month-text--in-selecting-range,
+.react-datepicker__month-text--in-range,
+.react-datepicker__quarter-text--selected,
+.react-datepicker__quarter-text--in-selecting-range,
+.react-datepicker__quarter-text--in-range {
+  background-color: #90BCB3;
+}
+
+.react-datepicker__month-text.react-datepicker__month--selected:hover, .react-datepicker__month-text.react-datepicker__month--in-range:hover, .react-datepicker__month-text.react-datepicker__quarter--selected:hover, .react-datepicker__month-text.react-datepicker__quarter--in-range:hover,
+.react-datepicker__quarter-text.react-datepicker__month--selected:hover,
+.react-datepicker__quarter-text.react-datepicker__month--in-range:hover,
+.react-datepicker__quarter-text.react-datepicker__quarter--selected:hover,
+.react-datepicker__quarter-text.react-datepicker__quarter--in-range:hover {
+  background-color: #90BCB3;
+}
+
+.react-datepicker__close-icon::after {
+  background-color: #90BCB3;
+}
+
+.react-datepicker__month--selected:hover, .react-datepicker__month--in-selecting-range:hover, .react-datepicker__month--in-range:hover,
+.react-datepicker__quarter--selected:hover,
+.react-datepicker__quarter--in-selecting-range:hover,
+.react-datepicker__quarter--in-range:hover,
+.react-datepicker__year-container-text--selected:hover,
+.react-datepicker__year-container-text--in-selecting-range:hover,
+.react-datepicker__year-container-text--in-range:hover {
+  background-color: #90BCB3;
+}
+
+.react-datepicker__day--selected:hover, .react-datepicker__day--in-selecting-range:hover, .react-datepicker__day--in-range:hover,
+.react-datepicker__month-text--selected:hover,
+.react-datepicker__month-text--in-selecting-range:hover,
+.react-datepicker__month-text--in-range:hover,
+.react-datepicker__quarter-text--selected:hover,
+.react-datepicker__quarter-text--in-selecting-range:hover,
+.react-datepicker__quarter-text--in-range:hover {
+  background-color: #90BCB3;
+}
+
+.react-datepicker__day--keyboard-selected:hover,
+.react-datepicker__month-text--keyboard-selected:hover,
+.react-datepicker__quarter-text--keyboard-selected:hover {
+  background-color: #90BCB3;
+}
+
+.react-datepicker__day--keyboard-selected,
+.react-datepicker__month-text--keyboard-selected,
+.react-datepicker__quarter-text--keyboard-selected {
+  background-color: #90BCB3;
+}
+
+.react-datepicker__navigation:focus, .react-datepicker__day:focus {
+  outline: 2px solid gray;
+}
+
+.react-datepicker__day--keyboard-selected, .react-datepicker__day--selected {
+  color: #262626;
 }
