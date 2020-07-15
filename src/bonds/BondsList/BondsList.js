@@ -1,7 +1,7 @@
 import React from 'react';
 import './BondsList.css';
 import Bond from '../Bond/Bond';
-import { daysSince, getNameByBondId } from '../../helper';
+import { daysSince } from '../../helper';
 
 function BondsList(props) {
   const { bonds, interactions, filterText, sortOption } = props;
@@ -10,9 +10,31 @@ function BondsList(props) {
     return bonds.filter(bond => bond.name.toLowerCase().indexOf(filterText.toLowerCase()) !== -1);
   }
 
-  function addTimeSinceToBonds(bonds, interactions) {
+  // The array created with this function is used to calculate the 'Time Since Last Interaction' for each bond
+  function makeLastInteractionByBondIdArr(interactions) {
+    let lastInteractionByBondId = [];
+    interactions.forEach(interaction => {
+      const currentIndex = lastInteractionByBondId.findIndex(el => el.bondId === interaction.bondId);
+      if (currentIndex === -1) {
+        lastInteractionByBondId.push({
+          bondId: interaction.bondId,
+          date: interaction.date
+        })
+      } else {
+        const currentLastInteractionDate = new Date(lastInteractionByBondId[currentIndex].date);
+        const thisInteractionDate = new Date(interaction.date);
+        if(currentLastInteractionDate < thisInteractionDate) {
+          lastInteractionByBondId[currentIndex].date = interaction.date
+        }
+      }
+    })
+
+    return lastInteractionByBondId;
+  }
+
+  function addTimeSinceToBonds(bonds, lastInteractionByBondId) {
     return bonds.map(bond => {
-      const lastInteraction = interactions.find(interaction => getNameByBondId(interaction.bondId, bonds) === bond.name);
+      const lastInteraction = lastInteractionByBondId.find(interaction => interaction.bondId === bond.id);
       bond.timeSinceLastInteraction = !lastInteraction ? null : daysSince(lastInteraction.date);
       return bond;
     })
@@ -40,12 +62,15 @@ function BondsList(props) {
     return bonds;
   }
 
-  // Preparing data for bonds list
+  // The section below prepares the data for the bonds list
+
   const filteredBondsList = (filterText === '') 
     ? [...bonds]
     : filterBonds(bonds, filterText);
 
-  const bondsWithTimeSince = addTimeSinceToBonds(filteredBondsList, interactions);
+  const lastInteractionByBondId = makeLastInteractionByBondIdArr(interactions);
+  
+  const bondsWithTimeSince = addTimeSinceToBonds(filteredBondsList, lastInteractionByBondId);
 
   const myBondsList = sortBonds(bondsWithTimeSince, sortOption);
   

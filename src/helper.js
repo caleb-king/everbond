@@ -61,7 +61,15 @@ export const formatDate = date => {
   d.setDate(d.getDate() + 1);
   const monthName = monthsAbbr[d.getMonth()];
   const day = d.getDate();
-  return `${monthName} ${day}`;
+  const year = d.getFullYear();
+
+  const today = new Date();
+  const thisYear = today.getFullYear();
+  const isThisYear = year === thisYear;
+
+  return isThisYear 
+    ? `${monthName} ${day}`
+    : `${monthName} ${day}, ${year}`;
 }
 
 export const formatDateWithYear = date => {

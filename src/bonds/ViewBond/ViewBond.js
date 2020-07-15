@@ -12,6 +12,13 @@ function ViewBond(props) {
   const bondIndex = bonds.findIndex(bond => bond.id === bondIdAsNum);
   const { name, birthday, notes } = bonds[bondIndex];
 
+  const birthdayDiv = (
+    <div className="view-bond-birthday">
+      <i className="fas fa-birthday-cake"></i>
+      <p aria-label="Birthday">{formatBirthday(birthday)}</p>
+    </div>
+  )
+
   return (
     <>
       <NavBar />
@@ -24,10 +31,7 @@ function ViewBond(props) {
             <i className="fas fa-user-circle"></i>
             <h2>{name}</h2>
           </div>
-          <div className="view-bond-birthday">
-            <i className="fas fa-birthday-cake"></i>
-            <p aria-label="Birthday">{formatBirthday(birthday)}</p>
-          </div>
+          {birthday && birthdayDiv}
           <div className="view-bond-notes">
             <i className="fas fa-sticky-note"></i>
             <textarea aria-label="Notes" name="bond-notes" rows="15" disabled value={notes}></textarea>
