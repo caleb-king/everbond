@@ -34,6 +34,10 @@
   margin-bottom: 15px;
 }
 
+.sort-field:hover {
+  cursor: pointer;
+}
+
 .search-field {
   margin-right: 10px;
 }
