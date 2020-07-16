@@ -4,7 +4,7 @@ import './LandingPage.css';
 
 function LandingPage() {
   
-  function handleChevronClicked(e) {
+  function handleArrowClicked(e) {
     e.currentTarget.blur();
     document.querySelector('.how-it-works-container').scrollIntoView({ 
       behavior: 'smooth' 
@@ -26,8 +26,9 @@ function LandingPage() {
             Explore EverBond
           </Link>
         </div>
-        <button className="view-more-below" onClick={handleChevronClicked}>
-          <i className="fas fa-chevron-down"></i>
+        <button className="view-more-below" onClick={handleArrowClicked}>
+          <i className="fas fa-arrow-down bounce"></i>
+          LEARN MORE!
         </button>
       </header>
       <div className="how-it-works-container">
