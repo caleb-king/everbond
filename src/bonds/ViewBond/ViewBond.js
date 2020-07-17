@@ -10,13 +10,10 @@ function ViewBond(props) {
   const bonds = props.bonds;
   
   const bondIndex = bonds.findIndex(bond => bond.id === bondIdAsNum);
-  console.log('bondIndex: ',bondIndex);
   const { name, birthday, notes } = bonds[bondIndex] || {};
 
   const birthdayDiv = (
     <div className="view-bond-birthday">
-      {console.log('birthday: ', birthday)}
-      {console.log('formatted birthday: ', formatBirthday(birthday))}
       <i className="fas fa-birthday-cake"></i>
       <p aria-label="Birthday">{formatBirthday(birthday)}</p>
     </div>
