@@ -27,11 +27,20 @@
 .search-field, .sort-field {
   width: 170px;
   padding: 6px 6px;
-  outline-color: #90BCB3;
   border: 1.5px solid #5e5e5e;
   border-radius: 3px;
   background-color: #ffffff;
   margin-bottom: 15px;
+}
+
+.search-field:focus, .sort-field:focus {
+  outline: none;
+  border-color: #90BCB3;
+}
+
+.sort-field {
+  -moz-appearance: none;
+  -webkit-appearance: none; 
 }
 
 .sort-field:hover {

@@ -42,7 +42,7 @@ function LandingPage() {
                 <p>Everbond helps you keep track of the quantity and quality of these interactions by providing a simple way to record and review them.</p>
               </div>
               <div className="screenshot-container">
-                <video src="videos/adding-interaction-screen-recording.mp4" className="how-to-video" autoPlay="1" loop="1" preload="auto"></video>
+                <video src="videos/adding-interaction-screen-recording.mp4" className="how-to-video" autoPlay loop muted></video>
               </div>
             </section>
             <section className="monitor-health">
@@ -52,7 +52,7 @@ function LandingPage() {
                 <p>With EverBond as your assistant, you can be more proactive and intentional with your family and friends, preventing relational decay.</p>
               </div>
               <div className="screenshot-container">
-                <video src="videos/monitoring-bond-screen-recording.mp4" className="how-to-video" autoPlay="1" loop="1" preload="auto"></video>
+                <video src="videos/monitoring-bond-screen-recording.mp4" className="how-to-video" autoPlay loop muted></video>
               </div>
             </section>
           </div>

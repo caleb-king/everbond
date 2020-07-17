@@ -15,12 +15,16 @@
   width: 100%;
 }
 
+.edit-bond textarea:focus, .edit-bond input:focus {
+  outline: none;
+  border-color: #90BCB3;
+}
+
 .edit-bond input {
   width: 100%;
   border: 1.5px solid #5e5e5e;
   border-radius: 3px;
   padding-left: 15px;
-  outline-color: #90BCB3;
   font-size: .9rem;
 }
 

@@ -50,7 +50,7 @@ const months = {
 }
 
 export const formatBirthday = date => {
-  const d = new Date(date)
+  const d = new Date(`${date}/2019`);
   const monthName = months[d.getMonth()];
   const day = d.getDate();
   return `${monthName} ${day}`;

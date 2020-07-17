@@ -14,6 +14,8 @@ function ViewBond(props) {
 
   const birthdayDiv = (
     <div className="view-bond-birthday">
+      {console.log('birthday: ', birthday)}
+      {console.log('formatted birthday: ', formatBirthday(birthday))}
       <i className="fas fa-birthday-cake"></i>
       <p aria-label="Birthday">{formatBirthday(birthday)}</p>
     </div>

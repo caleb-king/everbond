@@ -6,7 +6,6 @@
   min-width: 250px;
   border: 1.5px solid #5e5e5e;
   border-radius: 3px;
-  outline-color: #90BCB3;
   background-color: #FFFFFF;
   padding: 15px;
   font-family: "Open Sans", sans-serif;
@@ -20,9 +19,24 @@
   border: 1.5px solid #5e5e5e;
   border-radius: 3px;
   padding-left: 15px;
-  outline-color: #90BCB3;
   font-size: .9rem;
 }
+
+.edit-interaction select {
+  -moz-appearance: none;
+  -webkit-appearance: none; 
+}
+
+.edit-interaction select:hover {
+  cursor: pointer;
+}
+
+.edit-interaction textarea:focus, 
+.edit-interaction input:focus, 
+.edit-interaction select:focus {
+  outline: none;
+  border-color: #90BCB3;
+} 
 
 .edit-interaction label {
   margin-left: 50px;
