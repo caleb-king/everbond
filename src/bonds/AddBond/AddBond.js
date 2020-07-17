@@ -10,8 +10,6 @@ function AddBond(props) {
   const [birthdayIsInvalid, setBirthdayIsInvalid] = useState(false);
   let history = useHistory();
 
-  console.log(config.API_ENDPOINT);
-
   function handleSubmit(e) {
     e.preventDefault();
 
