@@ -11,7 +11,7 @@ function EditBond(props) {
   const bonds = props.bonds;
   
   const bondIndex = bonds.findIndex(bond => bond.id === bondIdAsNum);
-  const { name, birthday, notes } = bonds[bondIndex];
+  const { name, birthday, notes } = bonds[bondIndex] || {};
 
   const [birthdayIsInvalid, setBirthdayIsInvalid] = useState(false);
   let history = useHistory();

@@ -11,7 +11,7 @@ function ViewInteraction(props) {
   const bonds = props.bonds;
 
   const interactionIndex = interactions.findIndex(interaction => interaction.id === interactionIdAsNum);
-  const { bondId, date, medium, location, description } = interactions[interactionIndex];
+  const { bondId, date, medium, location, description } = interactions[interactionIndex] || {};
   const name = getNameByBondId(bondId, bonds);
 
   const locationDiv = (

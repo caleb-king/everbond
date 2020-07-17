@@ -20,13 +20,22 @@ function EditInteraction(props) {
   const bonds = props.bonds;
 
   const interactionIndex = interactions.findIndex(interaction => interaction.id === interactionIdAsNum);
-  const { bondId, date, medium, location, description } = interactions[interactionIndex];
+  const { bondId, date, medium, location, description } = interactions[interactionIndex] || {};
   const name = getNameByBondId(bondId, bonds);
-  let adjustedDate = new Date(date);
+  let adjustedDate = !date ? new Date() : new Date(date);
   adjustedDate.setDate(adjustedDate.getDate() + 1);
 
-  const [interactionDate, setInteractionDate] = useState(new Date(adjustedDate));
+  const [interactionDate, setInteractionDate] = useState(null);
   const [bondDateIsInvalid, setBondDateIsInvalid] = useState(false);
+  
+  // used to resolve bug on refresh -> updates initial value for interaction date once props have loaded
+  const [initialDateHasBeenSet, setInitialDateHasBeenSet] = useState(false);
+
+  if(date && !initialDateHasBeenSet) {
+    setInteractionDate(adjustedDate);
+    setInitialDateHasBeenSet(true);
+  }
+
   let history = useHistory();
   
   function handleDateChange(interactionDate) {

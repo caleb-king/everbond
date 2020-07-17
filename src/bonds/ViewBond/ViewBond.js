@@ -10,7 +10,8 @@ function ViewBond(props) {
   const bonds = props.bonds;
   
   const bondIndex = bonds.findIndex(bond => bond.id === bondIdAsNum);
-  const { name, birthday, notes } = bonds[bondIndex];
+  console.log('bondIndex: ',bondIndex);
+  const { name, birthday, notes } = bonds[bondIndex] || {};
 
   const birthdayDiv = (
     <div className="view-bond-birthday">
