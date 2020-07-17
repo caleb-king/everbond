@@ -22,7 +22,7 @@ function LandingPage() {
           <div className="value-proposition-container">
             <p className="value-proposition">Let EverBond help you <span>SUSTAIN</span> and <span>GROW</span> your personal relationships.</p>
           </div>
-          <Link to="/interactions" className="demo-button-light">
+          <Link to="/bonds" className="demo-button-light">
             Explore EverBond
           </Link>
         </div>
@@ -58,7 +58,7 @@ function LandingPage() {
           </div>
         </section>
         <section className="final-demo-button">
-          <Link to="/interactions" className="demo-button-dark">
+          <Link to="/bonds" className="demo-button-dark">
             Explore EverBond
           </Link>
         </section>
