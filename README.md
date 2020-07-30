@@ -1,68 +1,39 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# EverBond
+* [live app](https://everbond.now.sh)
 
-## Available Scripts
+## Summary
 
-In the project directory, you can run:
+EverBond is a web app which provides a simple and effective way to sustain and grow your personal relationships.
 
-### `npm start`
+Everbond helps you prevent relational decay by providing a place to record and review your interactions with friends and family. For example, you can easily track how long it's been since you last called Grandma. And you can quickly review notes from your last conversation to gather potential talking points or follow-up questions for an upcoming interaction.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+In essence, EverBond is your personal assistant to empower you to follow through on your good intentions to remain connected to your friends and family.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+More information on how Everbond works can be found on the app's [landing page](https://everbond.now.sh). There you will also find a couple of brief videos demonstrating the app.
 
-### `npm test`
+## Screenshots
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Landing Page:**
 
-### `npm run build`
+<a href="Landing Page"><img src="public/screenshots/everbond-landing-page.png" width="360" ></a><br><br><br>
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**My Bonds:**
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+<a href="My Bonds"><img src="public/screenshots/everbond-my-bonds.png" width="360" ></a><br><br><br>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**My Interactions:**
 
-### `npm run eject`
+<a href="My Interactions"><img src="public/screenshots/everbond-my-interactions.png" width="360" ></a><br><br><br>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Technical Requirements
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+* Uses React, Node, Express, and PostgreSQL.
+* The client and API are deployed separately and stored in separate GitHub repos. (The GitHub for the API can be found [here](https://github.com/caleb-king/everbond-server))
+* Uses a responsive and mobile-first design.
+* Uses semantic HTML/JSX.
+* Uses vanilla CSS for styling.
+* Both client- and server-side code is tested.
+* Includes a landing page that explains what the app does and how to get started.
+* Is live and publicly-accessible.
+* Follows a11y best practices.
+* Works across different browsers. (Chrome, Firefox, and Safari)
