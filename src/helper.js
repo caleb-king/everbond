@@ -9,7 +9,7 @@ export const formatTimeSince = t => {
   if(t < 384) return '1 year';
   if(t >= 384) return `${Math.round(10 * t / 365) / 10} years`;
   return '';
-}
+};
 
 export const daysSince = date => {
   const pastDate = new Date(date);
@@ -17,7 +17,7 @@ export const daysSince = date => {
   const timeSince = Math.abs(today - pastDate);
   const daysSince = Math.ceil(timeSince / (1000 * 60 * 60 * 24)); 
   return daysSince;
-}
+};
 
 const monthsAbbr = {
   0: 'Jan',
@@ -32,7 +32,7 @@ const monthsAbbr = {
   9: 'Oct',
   10: 'Nov',
   11: 'Dec'
-}
+};
 
 const months = {
   0: 'January',
@@ -47,17 +47,17 @@ const months = {
   9: 'October',
   10: 'November',
   11: 'December'
-}
+};
 
 export const formatBirthday = date => {
   const d = new Date(`${date}/2019`);
   const monthName = months[d.getMonth()];
   const day = d.getDate();
   return `${monthName} ${day}`;
-}
+};
 
 export const formatDate = date => {
-  const d = new Date(date)
+  const d = new Date(date);
   d.setDate(d.getDate() + 1);
   const monthName = monthsAbbr[d.getMonth()];
   const day = d.getDate();
@@ -70,16 +70,16 @@ export const formatDate = date => {
   return isThisYear 
     ? `${monthName} ${day}`
     : `${monthName} ${day}, ${year}`;
-}
+};
 
 export const formatDateWithYear = date => {
-  const d = new Date(date)
+  const d = new Date(date);
   d.setDate(d.getDate() + 1);
   const monthName = monthsAbbr[d.getMonth()];
   const day = d.getDate();
   const year = d.getFullYear();
   return `${monthName} ${day}, ${year}`;
-}
+};
 
 export const formatWithYearFirstAndHyphens = date => {
   const pad = n => n < 10 ? ('0' + n) : n;
@@ -88,7 +88,7 @@ export const formatWithYearFirstAndHyphens = date => {
   const day = pad(d.getDate());
   const year = d.getFullYear();
   return `${year}-${month}-${day}`;
-}
+};
 
 export const formatWithYearLastAndSlashes = date => {
   const pad = n => n < 10 ? ('0' + n) : n;
@@ -98,17 +98,17 @@ export const formatWithYearLastAndSlashes = date => {
   const day = pad(d.getDate());
   const year = d.getFullYear();
   return `${month}/${day}/${year}`;
-}
+};
 
 export const getNameByBondId = (bondId, bonds) => {
   const matchingBond = bonds.find(bond => bond.id === bondId);
   return (!matchingBond) ? null : matchingBond.name;
-}
+};
 
 export const getBondIdByName = (name, bonds) => {
   const matchingBond = bonds.find(bond => bond.name === name);
   return (!matchingBond) ? null : matchingBond.id;
-}
+};
 
 export const findMediumMatch = (medium) => {
   const mediumMatchingTable = {
@@ -128,4 +128,4 @@ export const findMediumMatch = (medium) => {
     'other' : 'Other',
   }
   return mediumMatchingTable[medium];
-}
+};

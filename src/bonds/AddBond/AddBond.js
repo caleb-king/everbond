@@ -32,17 +32,16 @@ function AddBond(props) {
     })
       .then(res => {
         if (!res.ok)
-          return res.json().then(e => Promise.reject(e))
-        return res.json()
+          return res.json().then(e => Promise.reject(e));
+        return res.json();
       })
       .then(bond => {
         props.addBond(bond);
         history.push('/bonds');
       })
       .catch(error => {
-        console.error({ error })
-      })
-    
+        console.error({ error });
+      });
   }
 
   function handleCancel(e) {
@@ -54,7 +53,7 @@ function AddBond(props) {
     const birthdayIsBlank = e.target.value === '';
     const dateIsValid = moment(e.target.value, "MM/DD", true).isValid();
 
-    if (dateIsValid || birthdayIsBlank ) {
+    if (dateIsValid || birthdayIsBlank) {
       setBirthdayIsInvalid(false);
     } else {
       setBirthdayIsInvalid(true);

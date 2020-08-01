@@ -62,7 +62,7 @@ function EditInteraction(props) {
       medium: medium,
       location: e.target['location'].value,
       description: e.target['description'].value,
-    }
+    };
     fetch(`${config.API_ENDPOINT}/interactions/${interactionIdAsNum}`, {
       method: 'PATCH',
       headers: {
@@ -72,15 +72,15 @@ function EditInteraction(props) {
     })
       .then(res => {
         if (!res.ok)
-          return res.json().then(e => Promise.reject(e))
+          return res.json().then(e => Promise.reject(e));
       })
       .then(() => {
         props.updateInteraction(newInteraction, interactionIdAsNum);
         history.push(`/interactions/view/${interactionIdAsNum}`);
       })
       .catch(error => {
-        console.error({ error })
-      })
+        console.error({ error });
+      });
   }
 
   function handleCancel(e) {
@@ -91,7 +91,7 @@ function EditInteraction(props) {
   function renderBondNames() {
     return props.bonds.map((bond, i) => (
       <option value={bond.name} key={i}/>
-    ))
+    ));
   }
 
   function handleNameChange(e) {

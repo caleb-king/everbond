@@ -18,7 +18,7 @@ function InteractionsList(props) {
         if (name1 < name2) return -1;
         if (name1 > name2) return 1;
         return 0;
-      })
+      });
     } else if (sortOption === 'time') {
       interactions.sort((interaction1, interaction2) => {
         const timeSince1 = daysSince(interaction1.date);
@@ -26,7 +26,7 @@ function InteractionsList(props) {
         if (timeSince1 < timeSince2) return -1;
         if (timeSince1 > timeSince2) return 1;
         return 0;
-      })
+      });
     }
     return interactions;
   }

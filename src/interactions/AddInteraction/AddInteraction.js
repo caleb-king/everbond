@@ -47,16 +47,16 @@ function AddInteraction(props) {
     })
       .then(res => {
         if (!res.ok)
-          return res.json().then(e => Promise.reject(e))
-        return res.json()
+          return res.json().then(e => Promise.reject(e));
+        return res.json();
       })
       .then(interaction => {
         props.addInteraction(interaction);
         history.push('/interactions');
       })
       .catch(error => {
-        console.error({ error })
-      })
+        console.error({ error });
+      });
   }
 
   function handleCancel(e) {
@@ -67,7 +67,7 @@ function AddInteraction(props) {
   function renderBondNames() {
     return props.bonds.map((bond, i) => (
       <option value={bond.name} key={i}/>
-    ))
+    ));
   }
 
   function handleNameChange(e) {

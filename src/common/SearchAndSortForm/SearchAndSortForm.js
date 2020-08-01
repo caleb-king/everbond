@@ -5,7 +5,7 @@ function SearchAndSortForm(props) {
   const { filterText, setFilterText, sortOption, setSortOption } = props;
 
   function handleSearchInputChange(e) {
-    setFilterText(e.target.value)
+    setFilterText(e.target.value);
   }
 
   function handleSortOptionChange(e) {

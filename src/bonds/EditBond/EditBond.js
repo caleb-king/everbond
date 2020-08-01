@@ -17,7 +17,7 @@ function EditBond(props) {
   let history = useHistory();
 
   function handleUpdate(e) {
-    e.preventDefault()
+    e.preventDefault();
 
     if (birthdayIsInvalid) {
       alert("Please supply a valid birthday (MM/DD) or leave this field blank.");
@@ -28,7 +28,7 @@ function EditBond(props) {
       name: e.target['bond-name'].value,
       birthday: e.target['bond-birthday'].value,
       notes: e.target['bond-notes'].value,
-    }
+    };
 
     fetch(`${config.API_ENDPOINT}/bonds/${bondIdAsNum}`, {
       method: 'PATCH',
@@ -39,7 +39,7 @@ function EditBond(props) {
     })
       .then(res => {
         if (!res.ok)
-          return res.json().then(e => Promise.reject(e))
+          return res.json().then(e => Promise.reject(e));
       })
       .then(() => {
         props.updateBond(updatedBond, bondIdAsNum);
@@ -47,7 +47,7 @@ function EditBond(props) {
       })
       .catch(error => {
         console.error({ error })
-      })
+      });
   }
 
   function handleCancel(e) {
@@ -59,7 +59,7 @@ function EditBond(props) {
     const birthdayIsBlank = e.target.value === '';
     const dateIsValid = moment(e.target.value, "MM/DD", true).isValid();
 
-    if (dateIsValid || birthdayIsBlank ) {
+    if (dateIsValid || birthdayIsBlank) {
       setBirthdayIsInvalid(false);
     } else {
       setBirthdayIsInvalid(true);

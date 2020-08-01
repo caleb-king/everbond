@@ -26,7 +26,7 @@ function App(props) {
         if (!bondsRes.ok)
           return bondsRes.json().then(e => Promise.reject(e))
         if (!interactionsRes.ok)
-          return interactionsRes.json().then(e => Promise.reject(e))
+          return interactionsRes.json().then(e => Promise.reject(e));
 
         return Promise.all([
           bondsRes.json(),
@@ -34,13 +34,13 @@ function App(props) {
         ])
       })
       .then(([bonds, interactions]) => {
-        setBonds(bonds)
-        setInteractions(interactions)
+        setBonds(bonds);
+        setInteractions(interactions);
       })
       .catch(error => {
-        console.error({ error })
+        console.error({ error });
       })
-  }, [])
+  }, []);
 
   function handleAddBond(newBond) {
     setBonds(bonds => [...bonds, newBond]);

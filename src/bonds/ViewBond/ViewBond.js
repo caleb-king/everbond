@@ -17,7 +17,7 @@ function ViewBond(props) {
       <i className="fas fa-birthday-cake"></i>
       <p aria-label="Birthday">{formatBirthday(birthday)}</p>
     </div>
-  )
+  );
 
   return (
     <>

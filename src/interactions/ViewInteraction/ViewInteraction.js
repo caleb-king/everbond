@@ -19,7 +19,7 @@ function ViewInteraction(props) {
       <i className="fas fa-map-marker-alt"></i>
       <p aria-label="Location">{location}</p>
     </div>
-  )
+  );
 
   return (
     <>

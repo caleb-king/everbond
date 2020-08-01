@@ -19,7 +19,7 @@ function BondsList(props) {
         lastInteractionByBondId.push({
           bondId: interaction.bondId,
           date: interaction.date
-        })
+        });
       } else {
         const currentLastInteractionDate = new Date(lastInteractionByBondId[currentIndex].date);
         const thisInteractionDate = new Date(interaction.date);
@@ -27,7 +27,7 @@ function BondsList(props) {
           lastInteractionByBondId[currentIndex].date = interaction.date
         }
       }
-    })
+    });
 
     return lastInteractionByBondId;
   }
@@ -37,7 +37,7 @@ function BondsList(props) {
       const lastInteraction = lastInteractionByBondId.find(interaction => interaction.bondId === bond.id);
       bond.timeSinceLastInteraction = !lastInteraction ? null : daysSince(lastInteraction.date);
       return bond;
-    })
+    });
   }
 
   function sortBonds(bonds, sortOption) {

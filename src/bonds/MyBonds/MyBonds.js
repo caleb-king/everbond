@@ -8,7 +8,7 @@ import CircleButton from '../../common/CircleFab/CircleFAB';
 
 function MyBonds(props) {
   const [filterText, setFilterText] = useState('');
-  const [sortOption, setSortOption]  = useState('name');
+  const [sortOption, setSortOption] = useState('name');
   
   return (
     <>
